@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RideSense | Project Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body style="padding-top: 50px;">
+
+    <nav class="navbar" style="max-width: 200px;">
+        <div class="nav-container">
+            <a href="index.html#projects" class="nav-link active">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="projects-section" style="min-height: 100vh;">
+        <div class="projects-header">
+            <h2 class="section-title">RideSense</h2>
+            <p class="projects-sub">IoT & Hardware Integration</p>
+        </div>
+
+        <div style="max-width: 800px; margin: 0 auto;">
+            <div style="width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <img src="project1-img.jpg" alt="RideSense Setup" style="width: 100%; height: auto; display: block;">
+            </div>
+
+            <div style="background: white; padding: 40px; border-radius: 20px; border: 1px solid #eee;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--primary-orange);">Overview</h3>
+                <p style="color: #444; font-size: 1.1rem; line-height: 1.8; margin-bottom: 35px; border-left: 4px solid var(--primary-orange); padding-left: 20px; font-style: italic;">
+                    A data-driven environmental monitoring solution designed to resolve the "accuracy gap" in digital weather forecasting by providing users with precise, ground-truth telemetry from their immediate surroundings.
+                </p>
+
+                <h3 style="font-size: 1.5rem; margin-bottom: 20px;">Technical Execution</h3>
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 40px;">
+                    <p style="color: #555; line-height: 1.7;"><strong style="color: var(--text-dark);">Hardware Architecture:</strong> Engineered a specialized sensing unit around the ESP32 microcontroller, integrating the DHT11 sensor for high-precision ambient temperature and humidity tracking.</p>
+                    <p style="color: #555; line-height: 1.7;"><strong style="color: var(--text-dark);">Data Validation Pipeline:</strong> Established a comparative analysis framework that fetched real-time data from the Open-Meteo API to serve as a baseline for measuring the accuracy of forecasted parameters against live local readings.</p>
+                    <p style="color: #555; line-height: 1.7;"><strong style="color: var(--text-dark);">Cloud-Integrated Analytics:</strong> Developed a data synchronization flow where local sensor outputs were processed to evaluate the trustworthiness of public weather apps, enabling better decision-making for activities sensitive to environmental shifts.</p>
+                </div>
+
+                <h3 style="font-size: 0.9rem; margin-bottom: 15px; color: #888; text-transform: uppercase; letter-spacing: 2px;">Core Technologies</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span style="background: #fff0e6; color: var(--primary-orange); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem; font-weight: 700;">ESP32 Microcontroller</span>
+                    <span style="background: #fff0e6; color: var(--primary-orange); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem; font-weight: 700;">DHT11 Sensor</span>
+                    <span style="background: #fff0e6; color: var(--primary-orange); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem; font-weight: 700;">Open-Meteo API</span>
+                    <span style="background: #fff0e6; color: var(--primary-orange); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem; font-weight: 700;">Arduino IDE (C++)</span>
+                    <span style="background: #fff0e6; color: var(--primary-orange); padding: 8px 18px; border-radius: 30px; font-size: 0.9rem; font-weight: 700;">IoT Cloud Integration</span>
+                </div>
+            </div>
+    </section>
+
+</body>
+</html>
