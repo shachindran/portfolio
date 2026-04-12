@@ -1,366 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shachin | Portfolio</title>
+    <title>Shachindran | Portfolio</title>
+    <meta name="description" content="Shachindran Veerangan — IT Student at UTP, YUTP Education Grant Recipient. Seeking 8-month Internship from May 2026.">
+    <!-- Prevent flash of wrong theme -->
+    <script>(function(){const t=localStorage.getItem('portfolio-theme');if(t)document.documentElement.setAttribute('data-theme',t);})();</script>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="navbar">
+    <!-- Page Loader -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-letter">S<span>V</span></div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" class="cursor-dot"></div>
+    <div id="cursor-ring" class="cursor-ring"></div>
+
+    <!-- Scroll Progress Bar -->
+    <div id="page-progress" class="page-progress"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-link active">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#stack" class="nav-link">Stack</a>
-            <a href="#projects" class="nav-link">Projects</a>
-            <a href="#academic" class="nav-link">Academic</a>
-            <a href="#contact" class="nav-link">Contact</a>
+            <a href="#home" class="nav-brand">SV<span class="brand-dot">.</span></a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#stack" class="nav-link">Stack</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#academic" class="nav-link">Academic</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <circle cx="12" cy="12" r="5"/>
+                    <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                    <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+            </button>
         </div>
     </nav>
 
+    <!-- ===================== HERO ===================== -->
     <section id="home" class="hero">
+        <canvas id="particles-canvas"></canvas>
+        <div class="hero-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
         <div class="hero-content">
-            <p class="eyebrow">YUTP Education Grant Recipient</p>
-            
-            <h1 class="main-title">Hi, I'm <span>Shachin</span></h1>
-            <h2 class="dynamic-text">I'm a <span id="typing-text"></span></h2>
-
-            <div class="profile-container">
-                <img src="profile.png" alt="Shachindran" class="profile-img">
+            <p class="eyebrow reveal-item">YUTP Education Grant Recipient</p>
+            <h1 class="main-title reveal-item" style="--delay:100ms">Hi, I'm <span>Shachin</span></h1>
+            <h2 class="dynamic-text reveal-item" style="--delay:200ms">I'm a <span id="typing-text"></span></h2>
+            <div class="profile-container reveal-item" style="--delay:300ms">
+                <div class="profile-ring"></div>
+                <img src="profile.png" alt="Shachindran Veerangan" class="profile-img">
             </div>
-
-            <p class="sub-headline">
-                IT Student at Universiti Teknologi PETRONAS. <br>
+            <p class="sub-headline reveal-item" style="--delay:400ms">
+                IT Student at Universiti Teknologi PETRONAS.<br>
                 <strong>Seeking 8-month Internship • May 2026</strong>
             </p>
-
-            <div class="hero-btns">
-                <div class="moving-text-wrapper">
-                    <span class="moving-text">Let's Work Together!</span>
-                </div>
-                
-                <a href="resume.pdf" target="_blank" class="btn-resume">View My Resume</a>
+            <div class="hero-btns reveal-item" style="--delay:500ms">
+                <div class="moving-text-wrapper"><span class="moving-text">Let's Work Together!</span></div>
+                <a href="resume.pdf" target="_blank" class="btn-resume">
+                    <span>View My Resume</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
             </div>
+        </div>
+        <div class="scroll-hint">
+            <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+            <span>Scroll</span>
         </div>
     </section>
 
+    <!-- ===================== ABOUT ===================== -->
     <section id="about" class="about-section">
         <div class="about-container">
             <div class="about-text">
-                <h2 class="section-title">Building versatile tech with a <span class="highlight">global perspective.</span></h2>
+                <h2 class="section-title reveal-item">Building versatile tech with a <span class="highlight">global perspective.</span></h2>
                 <div class="bio-content">
-                    <p>Hi, I'm <strong>Shachindran</strong>. I'm currently pursuing my Bachelor of Information Technology at <strong>Universiti Teknologi PETRONAS (UTP)</strong>. As a YUTP Education Grant recipient, I’ve been able to fully dedicate myself to understanding the mechanics behind efficient, scalable systems.</p>
-                    
-                    <p>I intentionally avoid limiting myself to a single technical niche. My work spans a wide spectrum—from building out complex OOP logic to exploring Artificial Intelligence and Machine Learning. I believe the most effective tech professionals are those who can pull from multiple disciplines to solve a problem.</p>
-                    
-                    <p>Recently, I completed a student exchange at <strong>Bilkent University, Turkey</strong>. Navigating a new academic environment forced me to adapt fast and gave me a global perspective on how teams collaborate and tackle challenges.</p>
+                    <p class="reveal-item" style="--delay:100ms">Hi, I'm <strong>Shachindran</strong>. I'm currently pursuing my Bachelor of Information Technology at <strong>Universiti Teknologi PETRONAS (UTP)</strong>. As a YUTP Education Grant recipient, I've been able to fully dedicate myself to understanding the mechanics behind efficient, scalable systems.</p>
+                    <p class="reveal-item" style="--delay:200ms">I intentionally avoid limiting myself to a single technical niche. My work spans a wide spectrum—from building out complex OOP logic to exploring Artificial Intelligence and Machine Learning. I believe the most effective tech professionals are those who can pull from multiple disciplines to solve a problem.</p>
+                    <p class="reveal-item" style="--delay:300ms">Recently, I completed a student exchange at <strong>Bilkent University, Turkey</strong>. Navigating a new academic environment forced me to adapt fast and gave me a global perspective on how teams collaborate and tackle challenges.</p>
                 </div>
-                
-                <div class="internship-badge">
+                <div class="internship-badge reveal-item" style="--delay:400ms">
                     <span class="pulse"></span> Available for Internship: May 2026
                 </div>
             </div>
-
             <div class="about-stats">
-                <div class="stat-card">
+                <div class="stat-card reveal-item" style="--delay:0ms">
+                    <div class="stat-icon">🌍</div>
                     <h3>Global Experience</h3>
                     <p>Bilkent University Exchange (Turkey)</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal-item" style="--delay:150ms">
+                    <div class="stat-icon">🎓</div>
                     <h3>Education Grant</h3>
                     <p>YUTP Excellence Recipient</p>
                 </div>
-                <div class="stat-card">
+                <div class="stat-card reveal-item" style="--delay:300ms">
+                    <div class="stat-icon">⚡</div>
                     <h3>Adaptability</h3>
-                    <p>Multilingual & Cross-disciplinary</p>
+                    <p>Multilingual &amp; Cross-disciplinary</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===================== STACK ===================== -->
     <section id="stack" class="stack-section">
-        <div class="stack-header">
+        <div class="stack-header reveal-item">
             <h2 class="section-title">My <span class="highlight">Stack</span></h2>
             <p>The languages, frameworks, and tools I use to build, analyze, and communicate.</p>
         </div>
-
         <div class="stack-grid">
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:0ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="tech-logo">
-                        <h3>Python</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>My go-to language for backend logic and data handling. I use it heavily for analytical problem-solving and algorithmic challenges.</p>
-                    </div>
+                    <div class="flip-card-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" class="tech-logo"><h3>Python</h3></div>
+                    <div class="flip-card-back"><p>My go-to language for backend logic and data handling. I use it heavily for analytical problem-solving and algorithmic challenges.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:50ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="tech-logo">
-                        <h3>C++</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Essential for understanding core system mechanics. It built my solid foundation in object-oriented programming.</p>
-                    </div>
+                    <div class="flip-card-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" class="tech-logo"><h3>C++</h3></div>
+                    <div class="flip-card-back"><p>Essential for understanding core system mechanics. It built my solid foundation in object-oriented programming.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:100ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity" class="tech-logo">
-                        <h3>Unity & C#</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>The engine and logic behind my interactive projects, like the 'Wan and Whiskers' multiplayer game.</p>
-                    </div>
+                    <div class="flip-card-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg" alt="Unity" class="tech-logo unity-logo"><h3>Unity &amp; C#</h3></div>
+                    <div class="flip-card-back"><p>The engine and logic behind my interactive projects, like the 'Wan and Whiskers' multiplayer game.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:150ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="logo-group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo small">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo small">
-                        </div>
-                        <h3>HTML5 & CSS</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>The building blocks of my web projects. I rely on these to structure responsive, clean, and accessible user interfaces.</p>
-                    </div>
+                    <div class="flip-card-front"><div class="logo-group"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" class="tech-logo small"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" class="tech-logo small"></div><h3>HTML5 &amp; CSS</h3></div>
+                    <div class="flip-card-back"><p>The building blocks of my web projects. I rely on these to structure responsive, clean, and accessible user interfaces.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:200ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                         <div class="logo-group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-logo small">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" class="tech-logo small">
-                        </div>
-                        <h3>JS & PHP</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>The bridge between front-end interfaces and back-end logic. I use these to make web applications fully functional and interactive.</p>
-                    </div>
+                    <div class="flip-card-front"><div class="logo-group"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" class="tech-logo small"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" alt="PHP" class="tech-logo small"></div><h3>JS &amp; PHP</h3></div>
+                    <div class="flip-card-back"><p>The bridge between front-end interfaces and back-end logic. I use these to make web applications fully functional and interactive.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:250ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="tech-logo">
-                        <h3>MySQL</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Where I organize and structure data. I use it to design robust database architectures, like centralized healthcare records.</p>
-                    </div>
+                    <div class="flip-card-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" class="tech-logo"><h3>MySQL</h3></div>
+                    <div class="flip-card-back"><p>Where I organize and structure data. I use it to design robust database architectures, like centralized healthcare records.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:300ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-plain.svg" alt="Visual Basic" class="tech-logo">
-                        <h3>Visual Basic</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>A practical tool I use for rapid application development and structuring straightforward, functional tools.</p>
-                    </div>
+                    <div class="flip-card-front"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-plain.svg" alt="Visual Basic" class="tech-logo"><h3>Visual Basic</h3></div>
+                    <div class="flip-card-back"><p>A practical tool I use for rapid application development and structuring straightforward, functional tools.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:350ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="logo-group">
-                            <img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" alt="Power BI" class="tech-logo small">
-                            <img src="https://cdn.worldvectorlogo.com/logos/excel-4.svg" alt="Excel" class="tech-logo small">
-                        </div>
-                        <h3>Power BI & Excel</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Data needs a story. I use Excel for heavy-duty organization and Power BI to translate raw numbers into visual, actionable insights.</p>
-                    </div>
+                    <div class="flip-card-front"><div class="logo-group"><img src="https://cdn.worldvectorlogo.com/logos/power-bi-1.svg" alt="Power BI" class="tech-logo small"><img src="https://cdn.worldvectorlogo.com/logos/excel-4.svg" alt="Excel" class="tech-logo small"></div><h3>Power BI &amp; Excel</h3></div>
+                    <div class="flip-card-back"><p>Data needs a story. I use Excel for heavy-duty organization and Power BI to translate raw numbers into visual, actionable insights.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:400ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class="logo-group">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" class="tech-logo small">
-                            <img src="https://cdn.worldvectorlogo.com/logos/framer-1.svg" alt="Framer" class="tech-logo small">
-                        </div>
-                        <h3>Figma & Framer</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Where code meets design. I use these to wireframe layouts and build interactive prototypes before actual development begins.</p>
-                    </div>
+                    <div class="flip-card-front"><div class="logo-group"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" class="tech-logo small"><img src="https://cdn.worldvectorlogo.com/logos/framer-1.svg" alt="Framer" class="tech-logo small"></div><h3>Figma &amp; Framer</h3></div>
+                    <div class="flip-card-back"><p>Where code meets design. I use these to wireframe layouts and build interactive prototypes before actual development begins.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:450ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3 style="font-size: 3rem; margin-bottom: 10px;">🗣️</h3>
-                        <h3>Fluent Languages</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>English, Bahasa Melayu, and Tamil. My primary languages for technical documentation, project coordination, and day-to-day communication.</p>
-                    </div>
+                    <div class="flip-card-front"><div class="emoji-icon">🗣️</div><h3>Fluent Languages</h3></div>
+                    <div class="flip-card-back"><p>English, Bahasa Melayu, and Tamil. My primary languages for technical documentation, project coordination, and day-to-day communication.</p></div>
                 </div>
             </div>
-
-            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+            <div class="flip-card reveal-item" style="--delay:500ms" onclick="this.classList.toggle('flipped')">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <h3 style="font-size: 3rem; margin-bottom: 10px;">🌍</h3>
-                        <h3>Conversational</h3>
-                    </div>
-                    <div class="flip-card-back">
-                        <p>Turkish, Mandarin Chinese, and Telugu. Picking up the basics of these helped me navigate my exchange semester and connect with global teams.</p>
-                    </div>
+                    <div class="flip-card-front"><div class="emoji-icon">🌍</div><h3>Conversational</h3></div>
+                    <div class="flip-card-back"><p>Turkish, Mandarin Chinese, and Telugu. Picking up the basics of these helped me navigate my exchange semester and connect with global teams.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===================== PROJECTS ===================== -->
     <section id="projects" class="projects-section">
-        <div class="projects-header">
+        <div class="projects-header reveal-item">
             <h2 class="section-title">What I've <span class="highlight">Built</span></h2>
             <p class="projects-sub">A selection of my work spanning software engineering, IoT, interface design, and network security.</p>
         </div>
-
         <div class="projects-grid">
-            
-            <div class="project-card">
-                <div class="project-thumb theme-dark" onclick="window.location.href='project-weather.html'">
-                    <h2 class="thumb-title">Weather System</h2>
+            <!-- ─── RideSense ─── -->
+            <div class="project-card reveal-item" style="--delay:0ms">
+                <div class="project-thumb theme-dark tilt-card" onclick="window.location.href='project-ridesense.html'">
+                    <!-- ESP32 / IoT chip illustration -->
+                    <svg class="project-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="34" y="24" width="52" height="72" rx="5" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                        <rect x="43" y="33" width="34" height="54" rx="3" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                        <line x1="34" y1="39" x2="16" y2="39" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="34" y1="52" x2="16" y2="52" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="34" y1="65" x2="16" y2="65" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="34" y1="78" x2="16" y2="78" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="86" y1="39" x2="104" y2="39" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="86" y1="52" x2="104" y2="52" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="86" y1="65" x2="104" y2="65" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="86" y1="78" x2="104" y2="78" stroke="rgba(255,255,255,0.28)" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M 50 52 Q 60 45 70 52" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <path d="M 46 47 Q 60 38 74 47" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <path d="M 42 42 Q 60 31 78 42" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        <circle cx="60" cy="66" r="6" fill="rgba(255,255,255,0.4)"/>
+                        <circle cx="60" cy="66" r="2.5" fill="rgba(255,255,255,0.95)"/>
+                    </svg>
+                    <h2 class="thumb-title">RideSense</h2>
                     <div class="view-btn">View Project <span>→</span></div>
+                    <div class="thumb-shine"></div>
                 </div>
                 <div class="project-info">
-                    <span class="project-category">IoT & Environmental Analytics</span>
-                    <h3>Weather Accuracy System</h3>
-                    <p>An IoT-based environmental monitoring system engineered to bridge the gap between forecasted and actual weather data through real-time localized sensing. I collaborated on integrating an ESP32 microcontroller with the DHT11 sensor to monitor ambient temperature and humidity, routing this hardware data through a centralized cloud platform to validate the reliability of digital forecasts.</p>
+                    <span class="project-category">IoT &amp; Hardware Integration</span>
+                    <h3>RideSense</h3>
+                    <p>An IoT-based motorcycle safety system engineered to monitor rider behavior and detect crashes in real-time. Collaborated on integrating an ESP32 microcontroller with MPU6050 accelerometers, routing hardware data through MQTT protocols to a cloud dashboard.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ESP32</span>
+                        <span class="tech-tag">MQTT</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">MPU6050</span>
+                        <span class="tech-tag">IoT</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-thumb theme-slate" onclick="window.location.href='project-freshtrack.html'">
+            <!-- ─── Fresh Track ─── -->
+            <div class="project-card reveal-item" style="--delay:100ms">
+                <div class="project-thumb theme-slate tilt-card" onclick="window.location.href='project-freshtrack.html'">
+                    <!-- Phone UI / inventory illustration -->
+                    <svg class="project-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="30" y="10" width="60" height="100" rx="9" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+                        <rect x="36" y="22" width="48" height="76" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+                        <rect x="42" y="30" width="30" height="6" rx="3" fill="rgba(255,255,255,0.55)"/>
+                        <circle cx="78" cy="33" r="4" fill="rgba(100,220,100,0.8)"/>
+                        <rect x="42" y="43" width="22" height="6" rx="3" fill="rgba(255,255,255,0.38)"/>
+                        <circle cx="78" cy="46" r="4" fill="rgba(255,200,50,0.8)"/>
+                        <rect x="42" y="56" width="11" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+                        <circle cx="78" cy="59" r="4" fill="rgba(255,75,50,0.8)"/>
+                        <line x1="42" y1="72" x2="78" y2="72" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <rect x="46" y="78" width="28" height="4" rx="2" fill="rgba(255,255,255,0.15)"/>
+                        <path d="M 44 88 L 41 88 L 41 91 M 76 88 L 79 88 L 79 91 M 44 97 L 41 97 L 41 94 M 76 97 L 79 97 L 79 94" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linecap="round"/>
+                        <circle cx="60" cy="108" r="3" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+                    </svg>
                     <h2 class="thumb-title">Fresh Track</h2>
                     <div class="view-btn">View Project <span>→</span></div>
+                    <div class="thumb-shine"></div>
                 </div>
                 <div class="project-info">
                     <span class="project-category">UI/UX Design</span>
                     <h3>Fresh Track</h3>
                     <p>A digital inventory solution designed to reduce household food waste. Serving as UI/UX lead, I prototyped an AI-driven "Smart Scan" flow in Figma to extract receipt data, and designed a high-fidelity pantry interface with color-coded shelf-life tracking.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">Framer</span>
+                        <span class="tech-tag">UI/UX</span>
+                        <span class="tech-tag">AI Design</span>
+                        <span class="tech-tag">Prototyping</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-thumb theme-navy" onclick="window.location.href='project-wanandwhiskers.html'">
-                    <h2 class="thumb-title">Wan & Whiskers</h2>
+            <!-- ─── Wan & Whiskers ─── -->
+            <div class="project-card reveal-item" style="--delay:200ms">
+                <div class="project-thumb theme-navy tilt-card" onclick="window.location.href='project-wanandwhiskers.html'">
+                    <!-- Game controller illustration -->
+                    <svg class="project-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 18 52 Q 8 84 30 94 L 46 94 Q 54 78 60 78 Q 66 78 74 94 L 90 94 Q 112 84 102 52 Q 96 30 76 28 L 44 28 Q 24 30 18 52Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="rgba(255,255,255,0.03)"/>
+                        <rect x="28" y="50" width="8" height="22" rx="3" fill="rgba(255,255,255,0.25)"/>
+                        <rect x="22" y="56" width="20" height="8" rx="3" fill="rgba(255,255,255,0.25)"/>
+                        <circle cx="83" cy="50" r="5" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                        <circle cx="94" cy="60" r="5" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                        <circle cx="83" cy="70" r="5" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                        <circle cx="72" cy="60" r="5" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                        <circle cx="47" cy="74" r="8" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                        <circle cx="73" cy="44" r="8" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+                        <rect x="55" y="48" width="6" height="4" rx="2" fill="rgba(255,255,255,0.3)"/>
+                        <rect x="62" y="48" width="6" height="4" rx="2" fill="rgba(255,255,255,0.3)"/>
+                        <line x1="18" y1="58" x2="8" y2="52" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                        <line x1="102" y1="58" x2="112" y2="52" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+                    </svg>
+                    <h2 class="thumb-title">Wan &amp; Whiskers</h2>
                     <div class="view-btn">View Project <span>→</span></div>
+                    <div class="thumb-shine"></div>
                 </div>
                 <div class="project-info">
-                    <span class="project-category">Game Development & OOP</span>
+                    <span class="project-category">Game Development &amp; OOP</span>
                     <h3>Wan and Whiskers</h3>
                     <p>A fast-paced, two-player swarm assault game requiring heavy coordination. Built entirely in Unity using C#, structuring game mechanics to include dynamic multi-character control, destructible environments, and a tiered endless adventure mode.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">OOP</span>
+                        <span class="tech-tag">Game Dev</span>
+                        <span class="tech-tag">Multiplayer</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card">
-                <div class="project-thumb theme-charcoal" onclick="window.location.href='project-netsec.html'">
+            <!-- ─── NetSec ─── -->
+            <div class="project-card reveal-item" style="--delay:300ms">
+                <div class="project-thumb theme-charcoal tilt-card" onclick="window.location.href='project-netsec.html'">
+                    <!-- Shield + lock / cybersecurity illustration -->
+                    <svg class="project-icon" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 60 12 L 98 28 L 98 66 Q 98 94 60 110 Q 22 94 22 66 L 22 28 Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="rgba(255,255,255,0.02)"/>
+                        <path d="M 60 20 L 90 33 L 90 66 Q 90 86 60 100 Q 30 86 30 66 L 30 33 Z" stroke="rgba(255,255,255,0.1)" stroke-width="1" fill="none"/>
+                        <rect x="44" y="58" width="32" height="26" rx="5" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"/>
+                        <path d="M 50 58 L 50 50 Q 50 40 60 40 Q 70 40 70 50 L 70 58" stroke="rgba(255,255,255,0.45)" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        <circle cx="60" cy="68" r="5" fill="rgba(255,255,255,0.35)"/>
+                        <rect x="58" y="68" width="4" height="7" rx="1.5" fill="rgba(255,255,255,0.35)"/>
+                        <line x1="98" y1="44" x2="110" y2="44" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                        <line x1="110" y1="44" x2="110" y2="56" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                        <circle cx="110" cy="56" r="2.5" fill="rgba(255,255,255,0.22)"/>
+                        <line x1="22" y1="44" x2="10" y2="44" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                        <line x1="10" y1="44" x2="10" y2="56" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+                        <circle cx="10" cy="56" r="2.5" fill="rgba(255,255,255,0.22)"/>
+                        <line x1="60" y1="12" x2="60" y2="4" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+                        <circle cx="60" cy="4" r="2.5" fill="rgba(255,255,255,0.2)"/>
+                    </svg>
                     <h2 class="thumb-title">NetSec Assessment</h2>
                     <div class="view-btn">View Project <span>→</span></div>
+                    <div class="thumb-shine"></div>
                 </div>
                 <div class="project-info">
                     <span class="project-category">Cybersecurity</span>
                     <h3>Corporate Network Vulnerability Assessment</h3>
                     <p>A simulated "Red Team" penetration test to identify and mitigate critical corporate risks. Conducted network reconnaissance, exploited known vulnerabilities (MS17-010), and drafted a strategic remediation plan focused on MFA and least-privilege access.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Kali Linux</span>
+                        <span class="tech-tag">Metasploit</span>
+                        <span class="tech-tag">MS17-010</span>
+                        <span class="tech-tag">Pen Testing</span>
+                        <span class="tech-tag">MFA</span>
+                    </div>
                 </div>
             </div>
-
         </div>
 
         <div class="archive-section">
-            <button id="view-more-btn" class="btn-primary" style="margin: 0 auto 40px; display: block; text-align: center;">View More Projects ↓</button>
-            
+            <button id="view-more-btn" class="btn-primary">View More Projects ↓</button>
             <div id="archive-content" class="archive-content">
                 <h3 class="archive-title">Other Explorations</h3>
                 <div class="archive-list">
-                    <div class="archive-item">
-                        <h4>Frosting Fairies</h4>
-                        <p><strong>Full-Stack Web:</strong> Responsive e-commerce platform for custom cakes using HTML, CSS, JavaScript, PHP, and MySQL, complete with user registration and secure order tracking.</p>
-                    </div>
-                    <div class="archive-item">
-                        <h4>SkinScan+ Care</h4>
-                        <p><strong>HCI & Prototyping:</strong> Designed accessible Figma prototypes for an AI-powered dermatological app aimed at rural Malaysian communities, featuring multilingual reports and high-contrast UI elements.</p>
-                    </div>
-                    <div class="archive-item">
-                        <h4>Digital Forensics Investigation</h4>
-                        <p><strong>Cybersecurity:</strong> Utilized Autopsy and FTK Imager to investigate a simulated corporate data breach, reconstructing the attack timeline and uncovering hidden artifacts.</p>
-                    </div>
-                    <div class="archive-item">
-                        <h4>YouTube Network Simulation</h4>
-                        <p><strong>Networking:</strong> Used eNSP to simulate a video streaming network, configuring OSPF and static routing across multiple routers to analyze data flow and latency.</p>
-                    </div>
-                    <div class="archive-item">
-                        <h4>MyCARE Architecture Concept</h4>
-                        <p><strong>Healthcare Tech:</strong> Proposed and mapped out a centralized Electronic Health Record (EHR) system to consolidate fragmented patient data across Malaysian healthcare facilities.</p>
-                    </div>
+                    <div class="archive-item"><h4>Frosting Fairies</h4><p><strong>Full-Stack Web:</strong> Responsive e-commerce platform for custom cakes using HTML, CSS, JavaScript, PHP, and MySQL, complete with user registration and secure order tracking.</p></div>
+                    <div class="archive-item"><h4>SkinScan+ Care</h4><p><strong>HCI &amp; Prototyping:</strong> Designed accessible Figma prototypes for an AI-powered dermatological app aimed at rural Malaysian communities, featuring multilingual reports and high-contrast UI elements.</p></div>
+                    <div class="archive-item"><h4>Digital Forensics Investigation</h4><p><strong>Cybersecurity:</strong> Utilized Autopsy and FTK Imager to investigate a simulated corporate data breach, reconstructing the attack timeline and uncovering hidden artifacts.</p></div>
+                    <div class="archive-item"><h4>YouTube Network Simulation</h4><p><strong>Networking:</strong> Used eNSP to simulate a video streaming network, configuring OSPF and static routing across multiple routers to analyze data flow and latency.</p></div>
+                    <div class="archive-item"><h4>MyCARE Architecture Concept</h4><p><strong>Healthcare Tech:</strong> Proposed and mapped out a centralized Electronic Health Record (EHR) system to consolidate fragmented patient data across Malaysian healthcare facilities.</p></div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===================== ACADEMIC ===================== -->
     <section id="academic" class="academic-section">
-        <div class="academic-header">
+        <div class="academic-header reveal-item">
             <h2 class="section-title">Academic <span class="highlight">Journey</span></h2>
             <p class="academic-sub">Consistent excellence, global perspective, and campus leadership.</p>
         </div>
-
         <div class="highlights-grid">
-            <div class="highlight-card brand-card">
-                <div class="card-content">
-                    <span class="card-icon">🎓</span>
-                    <h3>YUTP Education Grant Recipient</h3>
-                    <p>Awarded for both Foundation and Undergraduate Studies (September 2023 - Present).</p>
-                </div>
+            <div class="highlight-card brand-card reveal-item" style="--delay:0ms">
+                <div class="card-content"><span class="card-icon">🎓</span><h3>YUTP Education Grant Recipient</h3><p>Awarded for both Foundation and Undergraduate Studies (September 2023 - Present).</p></div>
             </div>
-
-            <div class="highlight-card image-card">
+            <div class="highlight-card image-card reveal-item" style="--delay:100ms">
                 <img src="award.jpg" alt="CFS Dean's Award" class="award-img">
-                <div class="card-content">
-                    <h3>CFS Dean’s Award</h3>
-                    <p>Awarded during the Foundation Studies Completion Ceremony (September 2024).</p>
-                </div>
+                <div class="card-content"><h3>CFS Dean's Award</h3><p>Awarded during the Foundation Studies Completion Ceremony (September 2024).</p></div>
             </div>
-
-            <div class="highlight-card outline-card">
-                <div class="card-content">
-                    <span class="card-icon">⭐</span>
-                    <h3>5x Dean’s List Recipient</h3>
-                    <p>Recognized across Undergraduate (Sept '24, May '25) and Foundation Studies (May '23, Sept '23, Jan '24).</p>
-                </div>
+            <div class="highlight-card outline-card reveal-item" style="--delay:200ms">
+                <div class="card-content"><span class="card-icon">⭐</span><h3><span class="counter-num" data-count="5">0</span>× Dean's List Recipient</h3><p>Recognized across Undergraduate (Sept '24, May '25) and Foundation Studies (May '23, Sept '23, Jan '24).</p></div>
             </div>
         </div>
 
-        <div class="global-banner">
+        <div class="global-banner reveal-item">
             <div class="global-text">
-                <h3>Expanding Horizons: <br><span class="highlight">Bilkent University Exchange</span></h3>
+                <h3>Expanding Horizons:<br><span class="highlight">Bilkent University Exchange</span></h3>
                 <span class="timeline-badge">Fall Semester 2025 - 2026</span>
                 <p>I stepped outside my familiar academic environment to complete a student exchange program at Bilkent University in Turkey. This experience challenged me to adapt to a new technical curriculum, collaborate with international peers, and develop a more global perspective on technology and problem-solving. It was a defining moment in building my adaptability as a future IT professional.</p>
             </div>
-            
             <div class="global-collage">
                 <img src="turkey1.jpg" alt="Bilkent Exchange 1" class="collage-img img-1">
                 <img src="turkey2.jpg" alt="Bilkent Exchange 2" class="collage-img img-2">
@@ -368,9 +410,8 @@
             </div>
         </div>
 
-        <div class="timeline-container">
-            <h3 class="timeline-title">Leadership & Campus Involvement</h3>
-            
+        <div class="timeline-container reveal-item">
+            <h3 class="timeline-title">Leadership &amp; Campus Involvement</h3>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
@@ -380,7 +421,6 @@
                         <p><strong>Assistant Project Director:</strong> HoliRun UTP (January)</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -388,7 +428,6 @@
                         <p><strong>AHOD Event Management:</strong> UTP Sangeeth (May 2025 - Present)</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -396,7 +435,6 @@
                         <p><strong>Sponsorship Department:</strong> Down to Earth (DTE) Project (March)</p>
                     </div>
                 </div>
-
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
@@ -409,16 +447,15 @@
         </div>
     </section>
 
+    <!-- ===================== CONTACT / FOOTER ===================== -->
     <footer id="contact" class="contact-section">
         <div class="contact-container">
-            <div class="contact-col">
+            <div class="contact-col reveal-item">
                 <h3 class="contact-title">Contact Me</h3>
-                <a href="https://api.whatsapp.com/qr/O4SUPX5CHGSJI1?autoload=1&app_absent=0" target="_blank" class="contact-link hover-target" data-cursor="Chat on WhatsApp">WhatsApp</a>
-                
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shachindran4@gmail.com" target="_blank" class="contact-link hover-target" data-cursor="Email Me">shachindran4@gmail.com</a>
+                <a href="https://api.whatsapp.com/qr/O4SUPX5CHGSJI1?autoload=1&amp;app_absent=0" target="_blank" class="contact-link hover-target" data-cursor="Chat on WhatsApp">WhatsApp</a>
+                <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=shachindran4@gmail.com" target="_blank" class="contact-link hover-target" data-cursor="Email Me">shachindran4@gmail.com</a>
             </div>
-
-            <div class="contact-col">
+            <div class="contact-col reveal-item" style="--delay:150ms">
                 <h3 class="contact-title">Social</h3>
                 <a href="https://www.linkedin.com/in/shachindran-veerangan-02b67a15a/" target="_blank" class="contact-link hover-target" data-cursor="Visit My LinkedIn Profile">LinkedIn</a>
                 <a href="https://github.com/shachindran" target="_blank" class="contact-link hover-target" data-cursor="View My GitHub">GitHub</a>
@@ -432,12 +469,12 @@
                 <h2>LET'S CONNECT • SHACHINDRAN • LET'S CONNECT • SHACHINDRAN • </h2>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 Shachindran Veerangan. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- Original cursor tap hint (preserved) -->
     <div id="cursor-tap-hint" class="cursor-tap-hint"></div>
 
     <script src="script.js"></script>
