@@ -1,3 +1,4 @@
+import { GasosExperience } from "@/components/gasos-experience";
 import { PortraitStage } from "@/components/portrait-stage";
 
 export default function Home() {
@@ -54,59 +55,7 @@ export default function Home() {
         <p className="hero-index">01 / 05</p>
       </section>
 
-      <section className="work-preview" id="work" aria-labelledby="work-title">
-        <div className="section-label">
-          <span>01</span>
-          <span>Featured system</span>
-        </div>
-
-        <div className="work-heading">
-          <h2 id="work-title">GASOS</h2>
-          <p>From fragmented operations to one working system.</p>
-        </div>
-
-        <div className="system-map" aria-label="GASOS connects operational workflows">
-          <div className="system-inputs">
-            <span>Orders</span>
-            <span>Delivery</span>
-            <span>Stock</span>
-            <span>Payments</span>
-          </div>
-
-          <div className="system-line" aria-hidden="true" />
-
-          <div className="system-core">
-            <span>G</span>
-            <small>GASOS</small>
-          </div>
-
-          <div className="system-line system-line--right" aria-hidden="true" />
-
-          <div className="system-result">
-            <strong>One operational truth.</strong>
-            <p>
-              A software system for the physical reality behind LPG distribution.
-            </p>
-          </div>
-        </div>
-
-        <div className="gasos-summary">
-          <p>
-            Orders, delivery, inventory and money all change the same operation.
-            GASOS brings those workflows into one auditable system, built around
-            how the work actually happens.
-          </p>
-
-          <a className="case-study-link" href="/work/gasos">
-            View case study <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-
-        <div className="work-foot">
-          <span>Product engineering · 2026</span>
-          <span>Pilot validation</span>
-        </div>
-      </section>
+      <GasosExperience />
 
       <section className="placeholder" id="about">
         <p className="section-label">
@@ -115,8 +64,8 @@ export default function Home() {
         </p>
         <h2>Built carefully. Shown honestly.</h2>
         <p>
-          The rest of the portfolio will follow this visual system now that the
-          hero and flagship-project direction are locked.
+          The next sections will use the same restraint: strong typography,
+          real engineering stories and interaction only where it adds something.
         </p>
       </section>
 
