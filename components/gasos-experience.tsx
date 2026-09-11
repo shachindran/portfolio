@@ -52,10 +52,15 @@ export function GasosExperience() {
 
   const connect = useTransform(scrollYProgress, [0.08, 0.56], [0, 1]);
   const titleY = useTransform(scrollYProgress, [0, 0.75], [80, -100]);
-  const titleOpacity = useTransform(scrollYProgress, [0, 0.12, 0.82, 1], [0.22, 0.45, 0.28, 0.08]);
+  const titleOpacity = useTransform(
+    scrollYProgress,
+    [0, 0.12, 0.82, 1],
+    [0.22, 0.45, 0.28, 0.08],
+  );
   const cardY = useTransform(scrollYProgress, [0.3, 0.75], [44, 0]);
   const cardOpacity = useTransform(scrollYProgress, [0.26, 0.54], [0, 1]);
   const lineOpacity = useTransform(connect, [0, 0.35, 1], [0.08, 0.3, 0.82]);
+  const coreScale = useTransform(connect, [0, 1], [0.9, 1]);
 
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
@@ -79,12 +84,42 @@ export function GasosExperience() {
   }
 
   const nodes = [
-    { label: "Orders", index: "01", from: [-320, -210] as [number, number], to: [-218, -132] as [number, number] },
-    { label: "Dispatch", index: "02", from: [0, -320] as [number, number], to: [0, -188] as [number, number] },
-    { label: "Delivery", index: "03", from: [330, -200] as [number, number], to: [218, -126] as [number, number] },
-    { label: "Payments", index: "04", from: [340, 210] as [number, number], to: [220, 126] as [number, number] },
-    { label: "Compliance", index: "05", from: [0, 330] as [number, number], to: [0, 192] as [number, number] },
-    { label: "Stock", index: "06", from: [-340, 210] as [number, number], to: [-222, 126] as [number, number] },
+    {
+      label: "Orders",
+      index: "01",
+      from: [-320, -210] as [number, number],
+      to: [-218, -132] as [number, number],
+    },
+    {
+      label: "Dispatch",
+      index: "02",
+      from: [0, -320] as [number, number],
+      to: [0, -188] as [number, number],
+    },
+    {
+      label: "Delivery",
+      index: "03",
+      from: [330, -200] as [number, number],
+      to: [218, -126] as [number, number],
+    },
+    {
+      label: "Payments",
+      index: "04",
+      from: [340, 210] as [number, number],
+      to: [220, 126] as [number, number],
+    },
+    {
+      label: "Compliance",
+      index: "05",
+      from: [0, 330] as [number, number],
+      to: [0, 192] as [number, number],
+    },
+    {
+      label: "Stock",
+      index: "06",
+      from: [-340, 210] as [number, number],
+      to: [-222, 126] as [number, number],
+    },
   ];
 
   return (
@@ -156,7 +191,7 @@ export function GasosExperience() {
 
           <motion.div
             className="gasos-core-interactive"
-            style={{ scale: reduced ? 1 : useTransform(connect, [0, 1], [0.9, 1]) }}
+            style={{ scale: reduced ? 1 : coreScale }}
           >
             <span>G</span>
             <small>GASOS</small>
@@ -191,7 +226,9 @@ export function GasosExperience() {
           <span>Featured system</span>
         </div>
         <h2>GASOS</h2>
-        <p className="gasos-mobile-lead">One system for work that used to live everywhere.</p>
+        <p className="gasos-mobile-lead">
+          One system for work that used to live everywhere.
+        </p>
         <div className="gasos-mobile-grid">
           {nodes.map((node) => (
             <span key={node.label}>{node.label}</span>
