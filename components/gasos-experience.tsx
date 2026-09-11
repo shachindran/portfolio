@@ -11,29 +11,30 @@ import {
   type MotionValue,
 } from "motion/react";
 
+type NodeName = "orders" | "dispatch" | "delivery" | "payments" | "compliance" | "stock";
+
 type NodeProps = {
+  name: NodeName;
   label: string;
   index: string;
   progress: MotionValue<number>;
-  from: [number, number];
-  to: [number, number];
+  order: number;
   reduced: boolean;
 };
 
-function SystemNode({ label, index, progress, from, to, reduced }: NodeProps) {
-  const x = useTransform(progress, [0, 1], [from[0], to[0]]);
-  const y = useTransform(progress, [0, 1], [from[1], to[1]]);
-  const opacity = useTransform(progress, [0, 0.2, 0.7, 1], [0.18, 0.45, 0.9, 1]);
-  const scale = useTransform(progress, [0, 1], [0.92, 1]);
+function SystemNode({ name, label, index, progress, order, reduced }: NodeProps) {
+  const start = 0.12 + order * 0.055;
+  const opacity = useTransform(progress, [start, start + 0.16], [0.22, 1]);
+  const scale = useTransform(progress, [start, start + 0.16], [0.92, 1]);
+  const y = useTransform(progress, [start, start + 0.16], [10, 0]);
 
   return (
     <motion.div
-      className="gasos-node"
+      className={`gasos-node gasos-node--${name}`}
       style={{
-        x: reduced ? to[0] : x,
-        y: reduced ? to[1] : y,
         opacity: reduced ? 1 : opacity,
         scale: reduced ? 1 : scale,
+        y: reduced ? 0 : y,
       }}
     >
       <span>{index}</span>
@@ -44,7 +45,7 @@ function SystemNode({ label, index, progress, from, to, reduced }: NodeProps) {
 
 export function GasosExperience() {
   const sectionRef = useRef<HTMLElement>(null);
-  const canvasRef = useRef<HTMLDivElement>(null);
+  const visualRef = useRef<HTMLDivElement>(null);
   const reduced = Boolean(useReducedMotion());
 
   const { scrollYProgress } = useScroll({
@@ -52,34 +53,27 @@ export function GasosExperience() {
     offset: ["start start", "end end"],
   });
 
-  const connect = useTransform(scrollYProgress, [0.06, 0.68], [0, 1]);
-  const titleY = useTransform(scrollYProgress, [0, 0.82], [36, -58]);
-  const titleOpacity = useTransform(
-    scrollYProgress,
-    [0, 0.12, 0.84, 1],
-    [0.2, 0.38, 0.2, 0.08],
-  );
-  const cardY = useTransform(scrollYProgress, [0.34, 0.72], [30, 0]);
-  const cardOpacity = useTransform(scrollYProgress, [0.3, 0.58], [0, 1]);
-  const lineOpacity = useTransform(connect, [0, 0.3, 1], [0.08, 0.35, 0.82]);
-  const lineProgress = useTransform(connect, [0.05, 0.9], [0, 1]);
-  const coreScale = useTransform(connect, [0, 0.45, 1], [0.82, 0.94, 1]);
-  const canvasScale = useTransform(scrollYProgress, [0, 0.42, 0.82], [0.95, 1, 1.015]);
+  const lineProgress = useTransform(scrollYProgress, [0.08, 0.58], [0, 1]);
+  const orbitOpacity = useTransform(scrollYProgress, [0.04, 0.45], [0.16, 0.7]);
+  const coreScale = useTransform(scrollYProgress, [0.05, 0.52], [0.88, 1]);
+  const stateOpacity = useTransform(scrollYProgress, [0.42, 0.66], [0, 1]);
+  const stateY = useTransform(scrollYProgress, [0.42, 0.66], [16, 0]);
+  const titleY = useTransform(scrollYProgress, [0, 0.8], [16, -34]);
 
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
-  const px = useSpring(pointerX, { stiffness: 70, damping: 22, mass: 0.65 });
-  const py = useSpring(pointerY, { stiffness: 70, damping: 22, mass: 0.65 });
+  const px = useSpring(pointerX, { stiffness: 70, damping: 24, mass: 0.7 });
+  const py = useSpring(pointerY, { stiffness: 70, damping: 24, mass: 0.7 });
 
   function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
     if (reduced) return;
-    const bounds = canvasRef.current?.getBoundingClientRect();
+    const bounds = visualRef.current?.getBoundingClientRect();
     if (!bounds) return;
 
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
     const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    pointerX.set(x * 7);
-    pointerY.set(y * 6);
+    pointerX.set(x * 4);
+    pointerY.set(y * 4);
   }
 
   function resetPointer() {
@@ -87,43 +81,13 @@ export function GasosExperience() {
     pointerY.set(0);
   }
 
-  const nodes = [
-    {
-      label: "Orders",
-      index: "01",
-      from: [-265, -178] as [number, number],
-      to: [-180, -108] as [number, number],
-    },
-    {
-      label: "Dispatch",
-      index: "02",
-      from: [0, -245] as [number, number],
-      to: [0, -154] as [number, number],
-    },
-    {
-      label: "Delivery",
-      index: "03",
-      from: [265, -176] as [number, number],
-      to: [180, -108] as [number, number],
-    },
-    {
-      label: "Payments",
-      index: "04",
-      from: [270, 178] as [number, number],
-      to: [180, 108] as [number, number],
-    },
-    {
-      label: "Compliance",
-      index: "05",
-      from: [0, 245] as [number, number],
-      to: [0, 154] as [number, number],
-    },
-    {
-      label: "Stock",
-      index: "06",
-      from: [-270, 178] as [number, number],
-      to: [-180, 108] as [number, number],
-    },
+  const nodes: Array<{ name: NodeName; label: string; index: string }> = [
+    { name: "orders", label: "Orders", index: "01" },
+    { name: "dispatch", label: "Dispatch", index: "02" },
+    { name: "delivery", label: "Delivery", index: "03" },
+    { name: "payments", label: "Payments", index: "04" },
+    { name: "compliance", label: "Compliance", index: "05" },
+    { name: "stock", label: "Stock", index: "06" },
   ];
 
   return (
@@ -143,85 +107,83 @@ export function GasosExperience() {
         <motion.p
           className="gasos-ghost-title"
           aria-hidden="true"
-          style={{
-            y: reduced ? 0 : titleY,
-            opacity: reduced ? 0.24 : titleOpacity,
-          }}
+          style={{ y: reduced ? 0 : titleY }}
         >
           GASOS
         </motion.p>
 
-        <div className="gasos-story">
-          <p className="gasos-story-kicker">Operations, made legible.</p>
-          <h2>One system for work that used to live everywhere.</h2>
-          <p>
-            Orders, delivery, stock and payments all change the same operation.
-            GASOS brings those moving parts into one auditable workflow.
-          </p>
-          <a className="case-study-link" href="/work/gasos">
-            Explore the case study <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+        <div className="gasos-layout">
+          <div className="gasos-story">
+            <p className="gasos-story-kicker">Operations, made legible.</p>
+            <h2>One system for work that used to live everywhere.</h2>
+            <p>
+              Orders, delivery, stock and payments all change the same operation.
+              GASOS brings those moving parts into one auditable workflow.
+            </p>
+            <a className="case-study-link" href="/work/gasos">
+              Explore the case study <span aria-hidden="true">↗</span>
+            </a>
+          </div>
 
-        <div className="gasos-canvas-shell">
-          <motion.div
-            ref={canvasRef}
-            className="gasos-canvas"
-            style={{
-              x: reduced ? 0 : px,
-              y: reduced ? 0 : py,
-              scale: reduced ? 1 : canvasScale,
-            }}
-            onPointerMove={handlePointerMove}
-            onPointerLeave={resetPointer}
-            aria-label="Interactive diagram showing GASOS connecting operational workflows"
-          >
-            <svg className="gasos-links" viewBox="-300 -220 600 440" aria-hidden="true">
-              <motion.line x1="0" y1="0" x2="-180" y2="-108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
-              <motion.line x1="0" y1="0" x2="0" y2="-154" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
-              <motion.line x1="0" y1="0" x2="180" y2="-108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
-              <motion.line x1="0" y1="0" x2="180" y2="108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
-              <motion.line x1="0" y1="0" x2="0" y2="154" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
-              <motion.line x1="0" y1="0" x2="-180" y2="108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
-              <circle cx="0" cy="0" r="88" />
-              <circle cx="0" cy="0" r="142" className="gasos-links-faint" />
-            </svg>
+          <div className="gasos-visual-column">
+            <motion.div
+              ref={visualRef}
+              className="gasos-network"
+              style={{ x: reduced ? 0 : px, y: reduced ? 0 : py }}
+              onPointerMove={handlePointerMove}
+              onPointerLeave={resetPointer}
+              aria-label="Diagram showing GASOS connecting operational workflows"
+            >
+              <motion.svg
+                className="gasos-links"
+                viewBox="0 0 100 100"
+                aria-hidden="true"
+                style={{ opacity: reduced ? 0.72 : orbitOpacity }}
+              >
+                <motion.line x1="50" y1="50" x2="23" y2="29" pathLength="1" style={{ pathLength: reduced ? 1 : lineProgress }} />
+                <motion.line x1="50" y1="50" x2="50" y2="13" pathLength="1" style={{ pathLength: reduced ? 1 : lineProgress }} />
+                <motion.line x1="50" y1="50" x2="77" y2="29" pathLength="1" style={{ pathLength: reduced ? 1 : lineProgress }} />
+                <motion.line x1="50" y1="50" x2="77" y2="71" pathLength="1" style={{ pathLength: reduced ? 1 : lineProgress }} />
+                <motion.line x1="50" y1="50" x2="50" y2="87" pathLength="1" style={{ pathLength: reduced ? 1 : lineProgress }} />
+                <motion.line x1="50" y1="50" x2="23" y2="71" pathLength="1" style={{ pathLength: reduced ? 1 : lineProgress }} />
+                <circle cx="50" cy="50" r="19" />
+                <circle cx="50" cy="50" r="30" className="gasos-links-faint" />
+              </motion.svg>
 
-            <div className="gasos-orbit" aria-hidden="true" />
+              {nodes.map((node, index) => (
+                <SystemNode
+                  key={node.name}
+                  {...node}
+                  progress={scrollYProgress}
+                  order={index}
+                  reduced={reduced}
+                />
+              ))}
 
-            {nodes.map((node) => (
-              <SystemNode
-                key={node.label}
-                {...node}
-                progress={connect}
-                reduced={reduced}
-              />
-            ))}
+              <motion.div
+                className="gasos-core-interactive"
+                style={{ scale: reduced ? 1 : coreScale }}
+              >
+                <span>G</span>
+                <small>GASOS</small>
+              </motion.div>
+            </motion.div>
 
             <motion.div
-              className="gasos-core-interactive"
-              style={{ scale: reduced ? 1 : coreScale }}
+              className="gasos-state-strip"
+              style={{
+                opacity: reduced ? 1 : stateOpacity,
+                y: reduced ? 0 : stateY,
+              }}
             >
-              <span>G</span>
-              <small>GASOS</small>
+              <span>System state</span>
+              <strong>Connected</strong>
+              <i />
+              <b>06</b>
+              <small>operational streams</small>
             </motion.div>
-          </motion.div>
-        </div>
-
-        <motion.div
-          className="gasos-state-card"
-          style={{
-            y: reduced ? 0 : cardY,
-            opacity: reduced ? 1 : cardOpacity,
-          }}
-        >
-          <span>System state</span>
-          <strong>Connected</strong>
-          <div>
-            <b>06</b>
-            <small>operational streams</small>
           </div>
-        </motion.div>
+        </div>
 
         <div className="gasos-scroll-cue" aria-hidden="true">
           <span>Scroll</span>
@@ -235,20 +197,30 @@ export function GasosExperience() {
           <span>01</span>
           <span>Featured system</span>
         </div>
+
         <h2>GASOS</h2>
         <p className="gasos-mobile-lead">
           One system for work that used to live everywhere.
         </p>
-        <div className="gasos-mobile-grid">
+
+        <motion.div
+          className="gasos-mobile-network"
+          initial={reduced ? false : { opacity: 0, y: 24 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="gasos-mobile-core">G</div>
           {nodes.map((node) => (
-            <span key={node.label}>{node.label}</span>
+            <span key={node.name}>{node.label}</span>
           ))}
-        </div>
-        <div className="gasos-mobile-core">GASOS</div>
+        </motion.div>
+
         <p>
           Orders, delivery, stock and payments all change the same operation.
           GASOS brings those moving parts into one auditable workflow.
         </p>
+
         <a className="case-study-link" href="/work/gasos">
           Explore the case study <span aria-hidden="true">↗</span>
         </a>
