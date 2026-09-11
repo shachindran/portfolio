@@ -1,3 +1,4 @@
+import { ExperienceSection } from "@/components/experience-section";
 import { GasosExperience } from "@/components/gasos-experience";
 import { PortraitStage } from "@/components/portrait-stage";
 
@@ -10,6 +11,7 @@ export default function Home() {
         </a>
         <nav className="nav" aria-label="Primary navigation">
           <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -56,11 +58,12 @@ export default function Home() {
       </section>
 
       <GasosExperience />
+      <ExperienceSection />
 
       <section className="placeholder" id="about">
         <p className="section-label">
           <span>Next</span>
-          <span>Experience · Selected work · About</span>
+          <span>Selected work · About</span>
         </p>
         <h2>Built carefully. Shown honestly.</h2>
         <p>
