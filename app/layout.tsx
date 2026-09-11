@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./interactive.css";
+import "./header.css";
 
 export const metadata: Metadata = {
   title: "Shachindran Veerangan — Software, AI & Systems",
