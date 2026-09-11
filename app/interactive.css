@@ -1,0 +1,368 @@
+.gasos-experience {
+  position: relative;
+  min-height: 240svh;
+  background: #151512;
+  color: #f4f1e9;
+}
+
+.gasos-sticky {
+  position: sticky;
+  top: 0;
+  min-height: 100svh;
+  overflow: hidden;
+  padding: clamp(5.5rem, 8vw, 7rem) var(--pad) 2rem;
+}
+
+.gasos-topline {
+  position: relative;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gasos-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #aaa79f;
+}
+
+.gasos-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--acid);
+  box-shadow: 0 0 18px rgba(200, 233, 63, 0.55);
+}
+
+.gasos-ghost-title {
+  position: absolute;
+  left: -0.03em;
+  top: 9vh;
+  margin: 0;
+  font-size: clamp(11rem, 27vw, 30rem);
+  font-weight: 540;
+  line-height: 0.7;
+  letter-spacing: -0.09em;
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.gasos-story {
+  position: absolute;
+  z-index: 7;
+  left: var(--pad);
+  bottom: clamp(3rem, 8vh, 5.5rem);
+  width: min(33rem, 38vw);
+}
+
+.gasos-story-kicker {
+  margin: 0 0 1.1rem;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: #8f8c84;
+}
+
+.gasos-story h2 {
+  margin: 0;
+  font-size: clamp(2.7rem, 4.2vw, 5.5rem);
+  font-weight: 520;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.gasos-story > p:not(.gasos-story-kicker) {
+  max-width: 31rem;
+  margin: 1.4rem 0 0;
+  color: #b5b2aa;
+  font-size: clamp(0.98rem, 1vw, 1.08rem);
+  line-height: 1.65;
+}
+
+.gasos-story .case-study-link {
+  margin-top: 2rem;
+  color: #f4f1e9;
+}
+
+.gasos-canvas {
+  position: absolute;
+  z-index: 6;
+  right: clamp(-5rem, -3vw, -1rem);
+  top: 50%;
+  width: min(54vw, 850px);
+  height: min(67vw, 760px);
+  transform: translateY(-46%);
+  transform-style: preserve-3d;
+}
+
+.gasos-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gasos-links line,
+.gasos-links circle {
+  fill: none;
+  stroke: rgba(244, 241, 233, 0.46);
+  stroke-width: 0.75;
+  vector-effect: non-scaling-stroke;
+}
+
+.gasos-links-faint {
+  stroke-dasharray: 2 10;
+  opacity: 0.22;
+}
+
+.gasos-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 45%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(244, 241, 233, 0.08);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 80px rgba(200, 233, 63, 0.045),
+    inset 0 0 70px rgba(255, 255, 255, 0.018);
+}
+
+.gasos-node {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  min-width: 8.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.72rem 0.85rem;
+  border: 1px solid rgba(244, 241, 233, 0.18);
+  background: rgba(21, 21, 18, 0.72);
+  backdrop-filter: blur(12px);
+  transform: translate(-50%, -50%);
+}
+
+.gasos-node span {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  color: #77746d;
+}
+
+.gasos-node strong {
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.gasos-core-interactive {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  width: clamp(8.5rem, 10vw, 10.5rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgba(244, 241, 233, 0.74);
+  border-radius: 50%;
+  background: #171714;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 0 11px rgba(255, 255, 255, 0.02),
+    0 0 100px rgba(200, 233, 63, 0.12);
+}
+
+.gasos-core-interactive::after {
+  content: "";
+  position: absolute;
+  inset: 17%;
+  border: 1px solid rgba(200, 233, 63, 0.4);
+  border-radius: 50%;
+}
+
+.gasos-core-interactive span {
+  margin-top: 1rem;
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.08em;
+}
+
+.gasos-core-interactive small {
+  margin-top: -1.7rem;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+}
+
+.gasos-state-card {
+  position: absolute;
+  right: 1.5%;
+  bottom: 7%;
+  width: min(14rem, 28%);
+  padding: 1rem;
+  border: 1px solid rgba(244, 241, 233, 0.18);
+  background: rgba(28, 28, 24, 0.86);
+  backdrop-filter: blur(14px);
+}
+
+.gasos-state-card > span,
+.gasos-state-card small {
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #7e7b74;
+}
+
+.gasos-state-card strong {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.gasos-state-card div {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-top: 2.2rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(244, 241, 233, 0.12);
+}
+
+.gasos-state-card b {
+  font-size: 2.4rem;
+  font-weight: 520;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  color: var(--acid);
+}
+
+.gasos-state-card small {
+  max-width: 6rem;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.gasos-scroll-cue {
+  position: absolute;
+  z-index: 8;
+  right: var(--pad);
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #706d66;
+}
+
+.gasos-scroll-cue i {
+  display: block;
+  width: 54px;
+  height: 1px;
+  background: #494741;
+}
+
+.gasos-mobile-fallback {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .gasos-story {
+    width: min(31rem, 42vw);
+  }
+
+  .gasos-canvas {
+    right: -8rem;
+    width: 60vw;
+  }
+}
+
+@media (max-width: 820px) {
+  .gasos-experience {
+    min-height: auto;
+  }
+
+  .gasos-sticky {
+    display: none;
+  }
+
+  .gasos-mobile-fallback {
+    display: block;
+    padding: 7rem var(--pad);
+  }
+
+  .gasos-mobile-fallback h2 {
+    margin: 3.6rem 0 1rem;
+    font-size: clamp(5.2rem, 24vw, 9rem);
+    line-height: 0.78;
+    font-weight: 520;
+    letter-spacing: -0.085em;
+  }
+
+  .gasos-mobile-lead {
+    max-width: 13ch;
+    margin: 2rem 0 4rem;
+    font-size: clamp(1.8rem, 7vw, 3rem);
+    line-height: 0.98;
+    letter-spacing: -0.05em;
+  }
+
+  .gasos-mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(244, 241, 233, 0.16);
+  }
+
+  .gasos-mobile-grid span {
+    padding: 1.1rem;
+    background: #151512;
+    font-family: "Geist Mono", ui-monospace, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .gasos-mobile-core {
+    display: grid;
+    width: 9rem;
+    aspect-ratio: 1;
+    place-items: center;
+    margin: 4rem auto;
+    border: 1px solid rgba(244, 241, 233, 0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 70px rgba(200, 233, 63, 0.08);
+    font-weight: 560;
+  }
+
+  .gasos-mobile-fallback > p:not(.gasos-mobile-lead) {
+    max-width: 33rem;
+    color: #b5b2aa;
+    line-height: 1.65;
+  }
+
+  .gasos-mobile-fallback .case-study-link {
+    display: inline-flex;
+    margin-top: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gasos-experience {
+    min-height: 100svh;
+  }
+}
