@@ -23,7 +23,8 @@ type NodeProps = {
 function SystemNode({ label, index, progress, from, to, reduced }: NodeProps) {
   const x = useTransform(progress, [0, 1], [from[0], to[0]]);
   const y = useTransform(progress, [0, 1], [from[1], to[1]]);
-  const opacity = useTransform(progress, [0, 0.15, 1], [0.4, 0.8, 1]);
+  const opacity = useTransform(progress, [0, 0.2, 0.7, 1], [0.18, 0.45, 0.9, 1]);
+  const scale = useTransform(progress, [0, 1], [0.92, 1]);
 
   return (
     <motion.div
@@ -32,6 +33,7 @@ function SystemNode({ label, index, progress, from, to, reduced }: NodeProps) {
         x: reduced ? to[0] : x,
         y: reduced ? to[1] : y,
         opacity: reduced ? 1 : opacity,
+        scale: reduced ? 1 : scale,
       }}
     >
       <span>{index}</span>
@@ -50,22 +52,24 @@ export function GasosExperience() {
     offset: ["start start", "end end"],
   });
 
-  const connect = useTransform(scrollYProgress, [0.04, 0.58], [0, 1]);
-  const titleY = useTransform(scrollYProgress, [0, 0.78], [48, -84]);
+  const connect = useTransform(scrollYProgress, [0.06, 0.68], [0, 1]);
+  const titleY = useTransform(scrollYProgress, [0, 0.82], [36, -58]);
   const titleOpacity = useTransform(
     scrollYProgress,
-    [0, 0.12, 0.82, 1],
-    [0.22, 0.42, 0.24, 0.08],
+    [0, 0.12, 0.84, 1],
+    [0.2, 0.38, 0.2, 0.08],
   );
-  const cardY = useTransform(scrollYProgress, [0.28, 0.62], [36, 0]);
-  const cardOpacity = useTransform(scrollYProgress, [0.25, 0.52], [0, 1]);
-  const lineOpacity = useTransform(connect, [0, 0.35, 1], [0.08, 0.3, 0.82]);
-  const coreScale = useTransform(connect, [0, 1], [0.92, 1]);
+  const cardY = useTransform(scrollYProgress, [0.34, 0.72], [30, 0]);
+  const cardOpacity = useTransform(scrollYProgress, [0.3, 0.58], [0, 1]);
+  const lineOpacity = useTransform(connect, [0, 0.3, 1], [0.08, 0.35, 0.82]);
+  const lineProgress = useTransform(connect, [0.05, 0.9], [0, 1]);
+  const coreScale = useTransform(connect, [0, 0.45, 1], [0.82, 0.94, 1]);
+  const canvasScale = useTransform(scrollYProgress, [0, 0.42, 0.82], [0.95, 1, 1.015]);
 
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
-  const px = useSpring(pointerX, { stiffness: 80, damping: 20, mass: 0.6 });
-  const py = useSpring(pointerY, { stiffness: 80, damping: 20, mass: 0.6 });
+  const px = useSpring(pointerX, { stiffness: 70, damping: 22, mass: 0.65 });
+  const py = useSpring(pointerY, { stiffness: 70, damping: 22, mass: 0.65 });
 
   function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
     if (reduced) return;
@@ -74,8 +78,8 @@ export function GasosExperience() {
 
     const x = (event.clientX - bounds.left) / bounds.width - 0.5;
     const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-    pointerX.set(x * 10);
-    pointerY.set(y * 8);
+    pointerX.set(x * 7);
+    pointerY.set(y * 6);
   }
 
   function resetPointer() {
@@ -87,38 +91,38 @@ export function GasosExperience() {
     {
       label: "Orders",
       index: "01",
-      from: [-270, -190] as [number, number],
-      to: [-205, -126] as [number, number],
+      from: [-265, -178] as [number, number],
+      to: [-180, -108] as [number, number],
     },
     {
       label: "Dispatch",
       index: "02",
-      from: [0, -250] as [number, number],
-      to: [0, -170] as [number, number],
+      from: [0, -245] as [number, number],
+      to: [0, -154] as [number, number],
     },
     {
       label: "Delivery",
       index: "03",
-      from: [270, -184] as [number, number],
-      to: [205, -120] as [number, number],
+      from: [265, -176] as [number, number],
+      to: [180, -108] as [number, number],
     },
     {
       label: "Payments",
       index: "04",
-      from: [275, 190] as [number, number],
-      to: [208, 122] as [number, number],
+      from: [270, 178] as [number, number],
+      to: [180, 108] as [number, number],
     },
     {
       label: "Compliance",
       index: "05",
-      from: [0, 250] as [number, number],
-      to: [0, 172] as [number, number],
+      from: [0, 245] as [number, number],
+      to: [0, 154] as [number, number],
     },
     {
       label: "Stock",
       index: "06",
-      from: [-275, 190] as [number, number],
-      to: [-208, 122] as [number, number],
+      from: [-270, 178] as [number, number],
+      to: [-180, 108] as [number, number],
     },
   ];
 
@@ -141,7 +145,7 @@ export function GasosExperience() {
           aria-hidden="true"
           style={{
             y: reduced ? 0 : titleY,
-            opacity: reduced ? 0.28 : titleOpacity,
+            opacity: reduced ? 0.24 : titleOpacity,
           }}
         >
           GASOS
@@ -163,20 +167,24 @@ export function GasosExperience() {
           <motion.div
             ref={canvasRef}
             className="gasos-canvas"
-            style={{ x: reduced ? 0 : px, y: reduced ? 0 : py }}
+            style={{
+              x: reduced ? 0 : px,
+              y: reduced ? 0 : py,
+              scale: reduced ? 1 : canvasScale,
+            }}
             onPointerMove={handlePointerMove}
             onPointerLeave={resetPointer}
             aria-label="Interactive diagram showing GASOS connecting operational workflows"
           >
-            <svg className="gasos-links" viewBox="-330 -235 660 470" aria-hidden="true">
-              <motion.line x1="0" y1="0" x2="-205" y2="-126" style={{ opacity: lineOpacity }} />
-              <motion.line x1="0" y1="0" x2="0" y2="-170" style={{ opacity: lineOpacity }} />
-              <motion.line x1="0" y1="0" x2="205" y2="-120" style={{ opacity: lineOpacity }} />
-              <motion.line x1="0" y1="0" x2="208" y2="122" style={{ opacity: lineOpacity }} />
-              <motion.line x1="0" y1="0" x2="0" y2="172" style={{ opacity: lineOpacity }} />
-              <motion.line x1="0" y1="0" x2="-208" y2="122" style={{ opacity: lineOpacity }} />
-              <circle cx="0" cy="0" r="100" />
-              <circle cx="0" cy="0" r="158" className="gasos-links-faint" />
+            <svg className="gasos-links" viewBox="-300 -220 600 440" aria-hidden="true">
+              <motion.line x1="0" y1="0" x2="-180" y2="-108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
+              <motion.line x1="0" y1="0" x2="0" y2="-154" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
+              <motion.line x1="0" y1="0" x2="180" y2="-108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
+              <motion.line x1="0" y1="0" x2="180" y2="108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
+              <motion.line x1="0" y1="0" x2="0" y2="154" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
+              <motion.line x1="0" y1="0" x2="-180" y2="108" style={{ opacity: lineOpacity, pathLength: lineProgress }} />
+              <circle cx="0" cy="0" r="88" />
+              <circle cx="0" cy="0" r="142" className="gasos-links-faint" />
             </svg>
 
             <div className="gasos-orbit" aria-hidden="true" />
@@ -197,23 +205,23 @@ export function GasosExperience() {
               <span>G</span>
               <small>GASOS</small>
             </motion.div>
-
-            <motion.div
-              className="gasos-state-card"
-              style={{
-                y: reduced ? 0 : cardY,
-                opacity: reduced ? 1 : cardOpacity,
-              }}
-            >
-              <span>System state</span>
-              <strong>Connected</strong>
-              <div>
-                <b>06</b>
-                <small>operational streams</small>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
+
+        <motion.div
+          className="gasos-state-card"
+          style={{
+            y: reduced ? 0 : cardY,
+            opacity: reduced ? 1 : cardOpacity,
+          }}
+        >
+          <span>System state</span>
+          <strong>Connected</strong>
+          <div>
+            <b>06</b>
+            <small>operational streams</small>
+          </div>
+        </motion.div>
 
         <div className="gasos-scroll-cue" aria-hidden="true">
           <span>Scroll</span>
