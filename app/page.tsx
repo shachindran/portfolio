@@ -2,11 +2,14 @@ import { ExperienceSection } from "@/components/experience-section";
 import { GasosExperience } from "@/components/gasos-experience";
 import { JourneySection } from "@/components/journey-section";
 import { PortraitStage } from "@/components/portrait-stage";
+import { ResetScrollOnRefresh } from "@/components/reset-scroll-on-refresh";
 import { SelectedWorkSection } from "@/components/selected-work-section";
 
 export default function Home() {
   return (
     <main>
+      <ResetScrollOnRefresh />
+
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Shachindran Veerangan home">
           SV
