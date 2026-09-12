@@ -6,6 +6,7 @@ import "./selected-work.css";
 import "./journey.css";
 import "./about.css";
 import "./header.css";
+import "./portrait.css";
 import "./polish.css";
 
 export const metadata: Metadata = {
