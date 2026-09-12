@@ -8,6 +8,31 @@
 .selected-work-intro{max-width:78rem}
 .selected-work-intro h2{max-width:11ch}
 
+/* Keep the live Nirtya viewport fully visible inside the browser frame.
+   The iframe is rendered wider, then scaled back to exactly fill the card,
+   instead of centering a fixed 1440px viewport and cropping both sides. */
+.nirtya-site-preview iframe{
+  left:0;
+  width:169.5%;
+  height:960px;
+  transform:scale(.59);
+  transform-origin:top left;
+}
+
+@media(max-width:1180px){
+  .nirtya-site-preview iframe{
+    width:181.82%;
+    transform:scale(.55);
+  }
+}
+
+@media(max-width:980px){
+  .nirtya-site-preview iframe{
+    width:185.19%;
+    transform:scale(.54);
+  }
+}
+
 @media(max-width:900px){
   #work,#experience,#selected-work,#journey,#about,#contact{scroll-margin-top:74px}
   .portrait-person{inset:5% -8% -1% -8%}
@@ -15,4 +40,9 @@
 
 @media(max-width:620px){
   .portrait-person{inset:7% -18% -1% -18%}
+  .nirtya-site-preview iframe{
+    width:232.56%;
+    height:920px;
+    transform:scale(.43);
+  }
 }
