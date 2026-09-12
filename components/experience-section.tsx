@@ -5,6 +5,7 @@ import {
   motion,
   useReducedMotion,
   useScroll,
+  useSpring,
   useTransform,
   type MotionValue,
 } from "motion/react";
@@ -18,25 +19,43 @@ type DocCardProps = {
 };
 
 function DocCard({ type, label, order, progress, reduced }: DocCardProps) {
-  const start = 0.08 + order * 0.07;
-  const end = start + 0.24;
-  const y = useTransform(progress, [start, end], [70 + order * 12, order * 14]);
-  const rotate = useTransform(progress, [start, end], [order % 2 === 0 ? -4 : 4, order % 2 === 0 ? -1.2 : 1.2]);
+  const start = 0.08 + order * 0.065;
+  const end = start + 0.22;
+  const y = useTransform(progress, [start, end], [34 + order * 3, 0]);
+  const rotate = useTransform(
+    progress,
+    [start, end],
+    [order % 2 === 0 ? -2.6 : 2.6, order % 2 === 0 ? -0.65 : 0.65],
+  );
   const opacity = useTransform(progress, [start, end], [0.18, 1]);
+  const scale = useTransform(progress, [start, end], [0.985, 1]);
 
   return (
     <motion.div
       className={`experience-doc experience-doc--${order + 1}`}
       style={{
-        y: reduced ? order * 14 : y,
-        rotate: reduced ? (order % 2 === 0 ? -1.2 : 1.2) : rotate,
+        y: reduced ? 0 : y,
+        rotate: reduced ? (order % 2 === 0 ? -0.65 : 0.65) : rotate,
         opacity: reduced ? 1 : opacity,
+        scale: reduced ? 1 : scale,
       }}
     >
       <span>{type}</span>
       <strong>{label}</strong>
       <i aria-hidden="true" />
     </motion.div>
+  );
+}
+
+function ThailandMark() {
+  return (
+    <svg
+      className="experience-thailand-map"
+      viewBox="0 0 260 520"
+      aria-hidden="true"
+    >
+      <path d="M126 20c18 9 27 28 35 47 10 24 25 43 23 69-2 19-11 31-5 48 7 19 24 28 26 48 2 17-7 32-8 48-1 20 11 36 6 58-4 16-16 30-19 47-4 19 6 39 3 58-3 20-20 34-25 53-4 14 2 29-5 44-6 12-19 20-28 29-9 9-14 22-24 29-8 6-20 7-28 1-7-5-8-15-4-23 5-10 16-17 20-28 6-16-3-34 2-50 5-17 20-28 26-45 7-19 2-38 6-57 4-20 18-34 21-54 3-18-5-34-7-52-2-22 9-38 16-56 8-20 11-42 22-60 11-18 28-28 46-32 14-3 28 0 39 6Z" />
+    </svg>
   );
 }
 
@@ -49,9 +68,17 @@ export function ExperienceSection() {
     offset: ["start start", "end end"],
   });
 
-  const titleY = useTransform(scrollYProgress, [0, 1], [20, -48]);
-  const outputOpacity = useTransform(scrollYProgress, [0.38, 0.64], [0, 1]);
-  const outputY = useTransform(scrollYProgress, [0.38, 0.64], [24, 0]);
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 72,
+    damping: 26,
+    mass: 0.75,
+  });
+
+  const titleY = useTransform(smoothProgress, [0, 1], [16, -34]);
+  const outputOpacity = useTransform(smoothProgress, [0.44, 0.68], [0, 1]);
+  const outputY = useTransform(smoothProgress, [0.44, 0.68], [18, 0]);
+  const mapOpacity = useTransform(smoothProgress, [0.02, 0.42], [0.025, 0.065]);
+  const mapY = useTransform(smoothProgress, [0, 1], [16, -10]);
 
   const docs = [
     { type: "PDF", label: "Reports" },
@@ -114,13 +141,23 @@ export function ExperienceSection() {
           </div>
 
           <div className="experience-visual" aria-label="Document formats moving through an extraction workflow">
+            <motion.div
+              className="experience-map-wrap"
+              style={{
+                opacity: reduced ? 0.055 : mapOpacity,
+                y: reduced ? 0 : mapY,
+              }}
+            >
+              <ThailandMark />
+            </motion.div>
+
             <div className="experience-stack">
               {docs.map((doc, index) => (
                 <DocCard
                   key={doc.type}
                   {...doc}
                   order={index}
-                  progress={scrollYProgress}
+                  progress={smoothProgress}
                   reduced={reduced}
                 />
               ))}
