@@ -4,6 +4,7 @@ import "./interactive.css";
 import "./experience.css";
 import "./selected-work.css";
 import "./journey.css";
+import "./about.css";
 import "./header.css";
 
 export const metadata: Metadata = {
