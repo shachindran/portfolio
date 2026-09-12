@@ -13,12 +13,13 @@ const chapters = [
     image: "/journey/utp.webp.jpeg",
     alt: "Portrait at Universiti Teknologi PETRONAS during an award ceremony",
     copy:
-      "UTP gave me the technical base I still use every day: programming, databases, web systems, object-oriented development and HCI. It also taught me how to work in teams, present ideas clearly and take ownership when the brief was not perfectly defined.",
-    note: "BSc Information Technology · Universiti Teknologi PETRONAS",
-    lessons: ["Software fundamentals", "Team projects", "Leadership"],
+      "I’m completing a Bachelor of Information Technology (Hons) at UTP. The degree gave me a broad software foundation across data science, databases, object-oriented programming and software engineering. Outside class, leadership roles taught me how to coordinate people, make decisions and deliver when the work was bigger than one person.",
+    note: "Bachelor of Information Technology (Hons) · YUTP Education Grant · Dean’s List",
+    lessons: ["Engineering foundation", "Leadership", "Ownership"],
     brand: "Universiti Teknologi PETRONAS",
     brandHref: "https://www.utp.edu.my/",
-    brandLogo: "https://www.utp.edu.my/PublishingImages/UTP_LOGO.png",
+    brandLogo:
+      "https://commons.wikimedia.org/wiki/Special:Redirect/file/UTP-logo.png?width=512",
   },
   {
     key: "ankara",
@@ -29,9 +30,9 @@ const chapters = [
     image: "/journey/ankara.webp.jpeg",
     alt: "Portrait on a Bilkent University bench in Ankara",
     copy:
-      "Bilkent was my first time studying and living abroad for a full semester. I had to adapt quickly to a different academic culture, new people and a completely new routine. I came back more independent, more comfortable starting from zero, and much more certain that I want an international career.",
-    note: "Exchange semester · Bilkent University · Ankara",
-    lessons: ["Adaptability", "Independence", "International perspective"],
+      "I spent a semester at Bilkent University as an exchange student in Computer Information Systems and Technologies. It was the first time I had to rebuild my routine in a different academic and cultural environment, and I learned to adapt quickly, communicate across backgrounds and become comfortable starting from zero. It made an international career feel realistic rather than distant.",
+    note: "Exchange Student · Computer Information Systems and Technologies · Bilkent University",
+    lessons: ["Adaptability", "Cross-cultural communication", "Independence"],
     brand: "Bilkent University",
     brandHref: "https://w3.bilkent.edu.tr/bilkent/",
     brandLogo: "https://w3.bilkent.edu.tr/logo/ing-amblem.png",
@@ -45,9 +46,9 @@ const chapters = [
     image: "/journey/bangkok.jpeg",
     alt: "Portrait at a technology conference in Bangkok",
     copy:
-      "Bangkok was my first engineering role abroad. In AI/NLP R&D, I worked on document intelligence, ingestion and extraction pipelines, edge cases across file formats and the async services around them. It taught me to debug uncertain systems, communicate progress clearly and make decisions when the answer was not obvious. Living there on my own made me more independent too.",
-    note: "AI / NLP R&D Intern · Omniscien Technologies · Bangkok",
-    lessons: ["Document intelligence", "Engineering under uncertainty", "Working independently"],
+      "Bangkok was where software stopped feeling like coursework. In AI/NLP R&D at Omniscien, I worked on document intelligence across heterogeneous file ingestion, extraction and enrichment, OCR paths, asynchronous workers and containerized environments. I learned to benchmark before choosing, trace problems through a system, test the awkward cases and keep moving when the answer was not obvious.",
+    note: "AI / NLP R&D Intern · Document Intelligence · Omniscien Technologies",
+    lessons: ["Document intelligence", "Systems thinking", "Engineering under uncertainty"],
     brand: "Omniscien Technologies",
     brandHref: "https://omniscien.com/",
     brandLogo: "",
@@ -67,8 +68,9 @@ export function JourneySection() {
 
         <h2>Malaysia → Ankara → Bangkok.</h2>
         <p>
-          University gave me the base. Ankara pushed me out of routine. Bangkok
-          was where the work started to feel real.
+          Three places shaped three different parts of how I work: UTP gave me
+          the foundation, Ankara made me adaptable, and Bangkok taught me to own
+          real engineering problems.
         </p>
       </div>
 
