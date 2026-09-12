@@ -143,7 +143,7 @@ export default function Home() {
           <a href="https://github.com/shachindran" target="_blank" rel="noreferrer">
             GitHub ↗
           </a>
-          <a href="https://www.linkedin.com/in/shachindran-veerangan/" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/shachindran-veerangan-02b67a15a/" target="_blank" rel="noreferrer">
             LinkedIn ↗
           </a>
         </div>
