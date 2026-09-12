@@ -77,8 +77,8 @@ export function ExperienceSection() {
   const titleY = useTransform(smoothProgress, [0, 1], [16, -34]);
   const outputOpacity = useTransform(smoothProgress, [0.44, 0.68], [0, 1]);
   const outputY = useTransform(smoothProgress, [0.44, 0.68], [18, 0]);
-  const mapOpacity = useTransform(smoothProgress, [0.02, 0.42], [0.025, 0.065]);
-  const mapY = useTransform(smoothProgress, [0, 1], [16, -10]);
+  const mapOpacity = useTransform(smoothProgress, [0.02, 0.42], [0.055, 0.12]);
+  const mapY = useTransform(smoothProgress, [0, 1], [14, -8]);
 
   const docs = [
     { type: "PDF", label: "Reports" },
@@ -144,7 +144,7 @@ export function ExperienceSection() {
             <motion.div
               className="experience-map-wrap"
               style={{
-                opacity: reduced ? 0.055 : mapOpacity,
+                opacity: reduced ? 0.095 : mapOpacity,
                 y: reduced ? 0 : mapY,
               }}
             >
