@@ -141,10 +141,10 @@ export function SelectedWorkSection() {
           <span>03</span>
           <span>Selected work</span>
         </div>
-        <h2>A few other things I&apos;ve built.</h2>
+        <h2>Three smaller builds. Three different problems.</h2>
         <p>
-          Smaller than the two stories above, but useful for showing the range of
-          problems I like working on.
+          Predictive modeling, time-series forecasting and a motion-heavy web
+          experience — useful snapshots of how I approach different kinds of work.
         </p>
       </div>
 
@@ -156,8 +156,9 @@ export function SelectedWorkSection() {
           </div>
           <h3>Predictive<br />Maintenance</h3>
           <p>
-            Predicting the remaining useful life of turbofan engines from sensor
-            data using NASA&apos;s C-MAPSS dataset.
+            A remaining-useful-life model built on NASA&apos;s C-MAPSS turbofan
+            dataset, using sensor degradation data to estimate how many cycles an
+            engine has left before failure.
           </p>
           <div className="selected-project-tags">
             <span>Python</span><span>Scikit-learn</span><span>Random Forest</span>
@@ -177,8 +178,9 @@ export function SelectedWorkSection() {
           </div>
           <h3>Smart Energy<br />Forecaster</h3>
           <p>
-            Forecasting hourly electricity demand and surfacing the daily,
-            weekly and yearly patterns underneath it.
+            An hourly electricity-demand forecaster built around AEP data, with
+            daily, weekly and seasonal patterns surfaced instead of hiding the
+            forecast behind a single number.
           </p>
           <div className="selected-project-tags">
             <span>Python</span><span>Prophet</span><span>AEP data</span>
@@ -198,8 +200,9 @@ export function SelectedWorkSection() {
           </div>
           <h3>Nirtya<br />Jothi</h3>
           <p>
-            A scroll-driven web experience for a Bharatanatyam academy, built
-            around a 240-frame temple sequence and an editorial narrative.
+            A cinematic website for a Bharatanatyam academy, built around a
+            240-frame temple sequence and scroll-driven transitions rather than a
+            conventional landing-page layout.
           </p>
           <div className="selected-project-tags">
             <span>Next.js</span><span>Scroll sequence</span><span>Web motion</span>
