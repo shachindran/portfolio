@@ -81,7 +81,7 @@ export function PortraitStage() {
         }}
       >
         <Image
-          src="/shachin-portrait.png"
+          src="/portrait/shachin-home.png"
           alt=""
           fill
           priority
@@ -99,7 +99,7 @@ export function PortraitStage() {
         }}
       >
         <Image
-          src="/shachin-portrait.png"
+          src="/portrait/shachin-home.png"
           alt=""
           fill
           priority
