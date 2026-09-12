@@ -1,5 +1,6 @@
 import { ExperienceSection } from "@/components/experience-section";
 import { GasosExperience } from "@/components/gasos-experience";
+import { JourneySection } from "@/components/journey-section";
 import { PortraitStage } from "@/components/portrait-stage";
 import { SelectedWorkSection } from "@/components/selected-work-section";
 
@@ -14,6 +15,7 @@ export default function Home() {
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#selected-work">Projects</a>
+          <a href="#journey">Journey</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -62,16 +64,17 @@ export default function Home() {
       <GasosExperience />
       <ExperienceSection />
       <SelectedWorkSection />
+      <JourneySection />
 
       <section className="placeholder" id="about">
         <p className="section-label">
           <span>Next</span>
-          <span>Journey · About</span>
+          <span>About · Contact</span>
         </p>
         <h2>Built carefully. Shown honestly.</h2>
         <p>
-          The next chapters move away from project detail and into the places,
-          people and decisions that shaped how I work.
+          The final chapter will keep things simple: what I am working on now,
+          where I want to go next, and the easiest ways to reach me.
         </p>
       </section>
 
