@@ -8,15 +8,226 @@
 .selected-work-intro{max-width:78rem}
 .selected-work-intro h2{max-width:11ch}
 
-/* Keep the live Nirtya viewport fully visible inside the browser frame.
-   The iframe is rendered wider, then scaled back to exactly fill the card,
-   instead of centering a fixed 1440px viewport and cropping both sides. */
+/* Keep the live Nirtya viewport fully visible inside the browser frame. */
 .nirtya-site-preview iframe{
   left:0;
   width:169.5%;
   height:960px;
   transform:scale(.59);
   transform-origin:top left;
+}
+
+/* Premium system polish — intentionally restrained: glass, depth and softer material edges. */
+:root{
+  --glass-light:rgba(248,248,246,.72);
+  --glass-line:rgba(255,255,255,.62);
+  --glass-shadow:0 18px 55px rgba(25,25,22,.09),0 2px 8px rgba(25,25,22,.035);
+  --soft-shadow:0 28px 80px rgba(17,17,15,.10),0 3px 12px rgba(17,17,15,.035);
+  --soft-radius:24px;
+  --ease-premium:cubic-bezier(.2,.72,.18,1);
+}
+
+body{
+  background:
+    radial-gradient(circle at 12% 3%,rgba(255,255,255,.9),transparent 28rem),
+    var(--paper);
+}
+
+/* Floating navigation: closer to machined glass than a white pill. */
+.site-header{
+  top:16px;
+  height:60px;
+  border-color:rgba(255,255,255,.68);
+  background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(241,240,236,.64));
+  backdrop-filter:blur(30px) saturate(175%);
+  -webkit-backdrop-filter:blur(30px) saturate(175%);
+  box-shadow:0 18px 50px rgba(31,31,28,.10),inset 0 1px 0 rgba(255,255,255,.82),inset 0 -1px 0 rgba(17,17,15,.055);
+}
+
+.site-header::before{
+  background:linear-gradient(110deg,rgba(255,255,255,.42),rgba(255,255,255,.08) 42%,rgba(255,255,255,.24));
+}
+
+.wordmark{
+  border-color:rgba(255,255,255,.72);
+  background:rgba(255,255,255,.46);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.82),0 2px 8px rgba(17,17,15,.05);
+}
+
+.nav a,.resume-link{
+  border-radius:999px;
+  padding:.5rem .68rem;
+  transition:background-color .28s var(--ease-premium),color .28s var(--ease-premium),transform .28s var(--ease-premium);
+}
+
+.nav a:hover,.resume-link:hover{
+  background:rgba(255,255,255,.54);
+  transform:translateY(-1px);
+}
+
+.nav a::after,.resume-link::after{display:none}
+
+/* Hero: softer material separation without changing the editorial composition. */
+.hero{
+  background:
+    radial-gradient(circle at 17% 14%,rgba(255,255,255,.72),transparent 32rem),
+    var(--paper);
+}
+
+.hero-visual{
+  background:
+    radial-gradient(circle at 48% 38%,rgba(255,255,255,.7),transparent 25%),
+    linear-gradient(145deg,#e4e2dd 0%,#cfcdc7 100%);
+  box-shadow:inset 1px 0 0 rgba(255,255,255,.55);
+}
+
+.portrait-frame{
+  border-color:rgba(255,255,255,.48);
+  border-radius:42px 42px 0 0;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+.portrait-shadow{
+  background:rgba(10,10,8,.14);
+  filter:blur(44px);
+}
+
+/* GASOS and dark selected work retain the serious black editorial tone, with quieter depth. */
+.gasos-board,
+.selected-visual{
+  border-color:rgba(255,255,255,.12);
+  border-radius:var(--soft-radius);
+  overflow:hidden;
+  box-shadow:0 36px 90px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.045);
+}
+
+.gasos-board{
+  background:linear-gradient(155deg,rgba(34,34,30,.86),rgba(18,18,16,.8));
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+.gasos-board-head,
+.gasos-board-foot{
+  background:rgba(255,255,255,.018);
+}
+
+.selected-visual{
+  transition:transform .55s var(--ease-premium),border-color .55s var(--ease-premium),box-shadow .55s var(--ease-premium);
+}
+
+.selected-project:hover .selected-visual{
+  transform:translateY(-5px);
+  border-color:rgba(255,255,255,.18);
+  box-shadow:0 42px 105px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.055);
+}
+
+.nirtya-live-visual{
+  border-radius:var(--soft-radius);
+  box-shadow:0 34px 90px rgba(0,0,0,.28);
+}
+
+.nirtya-browser-bar{
+  background:rgba(24,18,15,.88);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+
+/* Experience cards: translucent paper, soft diffusion and realistic separation. */
+.experience-doc{
+  border-color:rgba(255,255,255,.68);
+  border-radius:18px;
+  background:rgba(250,249,246,.72);
+  backdrop-filter:blur(18px) saturate(125%);
+  -webkit-backdrop-filter:blur(18px) saturate(125%);
+  box-shadow:0 22px 58px rgba(17,17,15,.075),inset 0 1px 0 rgba(255,255,255,.86);
+}
+
+.experience-output{
+  border-color:rgba(255,255,255,.08);
+  border-radius:18px;
+  box-shadow:0 26px 68px rgba(17,17,15,.14),inset 0 1px 0 rgba(255,255,255,.035);
+}
+
+.experience-stack-line span,
+.selected-project-tags span,
+.journey-lessons span{
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  transition:background-color .28s var(--ease-premium),border-color .28s var(--ease-premium),transform .28s var(--ease-premium);
+}
+
+.experience-stack-line span:hover,
+.selected-project-tags span:hover,
+.journey-lessons span:hover{
+  transform:translateY(-1px);
+}
+
+/* Journey imagery keeps its editorial proportions; only the material treatment changes. */
+.journey-photo-wrap{
+  border-radius:22px;
+  box-shadow:0 28px 70px rgba(32,31,28,.10),inset 0 1px 0 rgba(255,255,255,.4);
+}
+
+.journey-photo-index{
+  border-color:rgba(255,255,255,.5);
+  border-radius:999px;
+  background:rgba(20,20,18,.22);
+  backdrop-filter:blur(18px) saturate(130%);
+  -webkit-backdrop-filter:blur(18px) saturate(130%);
+}
+
+/* About information becomes one quiet glass information surface rather than many loud cards. */
+.about-grid,
+.about-evidence{
+  gap:1px;
+  border-radius:22px;
+  overflow:hidden;
+  background:rgba(17,17,15,.10);
+  box-shadow:0 24px 68px rgba(24,24,21,.055),inset 0 1px 0 rgba(255,255,255,.7);
+}
+
+.about-grid article,
+.about-evidence>div{
+  background:rgba(255,255,255,.34);
+  backdrop-filter:blur(16px) saturate(115%);
+  -webkit-backdrop-filter:blur(16px) saturate(115%);
+}
+
+/* Contact: dark Apple-like depth, not neon. */
+.contact-section{
+  background:
+    radial-gradient(circle at 78% 18%,rgba(255,255,255,.055),transparent 32rem),
+    linear-gradient(180deg,#151512,#10100e);
+}
+
+.contact-links a{
+  display:inline-flex;
+  align-items:center;
+  min-height:42px;
+  padding:.62rem .95rem;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:999px;
+  background:rgba(255,255,255,.045);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  transition:background-color .3s var(--ease-premium),border-color .3s var(--ease-premium),transform .3s var(--ease-premium),opacity .3s ease;
+}
+
+.contact-links a:hover{
+  opacity:1;
+  transform:translateY(-2px);
+  border-color:rgba(255,255,255,.18);
+  background:rgba(255,255,255,.075);
+}
+
+/* Hairlines and text rendering remain precise. */
+.case-study-nav{
+  background:rgba(241,240,236,.72);
+  border-color:rgba(255,255,255,.58);
+  backdrop-filter:blur(26px) saturate(160%);
+  -webkit-backdrop-filter:blur(26px) saturate(160%);
+  box-shadow:0 10px 35px rgba(17,17,15,.055);
 }
 
 @media(max-width:1180px){
@@ -36,6 +247,14 @@
 @media(max-width:900px){
   #work,#experience,#selected-work,#journey,#about,#contact{scroll-margin-top:74px}
   .portrait-person{inset:5% -8% -1% -8%}
+  .site-header{
+    top:10px;
+    background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(241,240,236,.76));
+    backdrop-filter:blur(26px) saturate(165%);
+    -webkit-backdrop-filter:blur(26px) saturate(165%);
+  }
+  .journey-photo-wrap{border-radius:18px}
+  .about-grid,.about-evidence{border-radius:18px}
 }
 
 @media(max-width:620px){
@@ -45,4 +264,13 @@
     height:920px;
     transform:scale(.43);
   }
+  .site-header{width:calc(100% - 16px)}
+  .wordmark{width:30px;height:30px}
+  .resume-link{padding:.45rem .55rem}
+  .gasos-board,.selected-visual,.nirtya-live-visual{border-radius:18px}
+  .contact-links a{width:max-content}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .selected-visual,.nav a,.resume-link,.contact-links a,.experience-stack-line span,.selected-project-tags span,.journey-lessons span{transform:none!important;transition:none!important}
 }
