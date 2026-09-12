@@ -120,24 +120,6 @@ export function ExperienceSection() {
               spent a lot of time checking whether the pipeline behaved the way
               it was supposed to.
             </p>
-
-            <div className="experience-notes">
-              <div>
-                <span>01</span>
-                <strong>Ingest</strong>
-                <p>Bring different document types into one processing path.</p>
-              </div>
-              <div>
-                <span>02</span>
-                <strong>Extract</strong>
-                <p>Pull out useful text, tables and metadata without losing structure.</p>
-              </div>
-              <div>
-                <span>03</span>
-                <strong>Check</strong>
-                <p>Test fallbacks, edge cases and whether the output can be trusted.</p>
-              </div>
-            </div>
           </div>
 
           <div className="experience-visual" aria-label="Document formats moving through an extraction workflow">
@@ -181,6 +163,24 @@ export function ExperienceSection() {
               </div>
             </motion.div>
           </div>
+        </div>
+      </div>
+
+      <div className="experience-details">
+        <div>
+          <span>01</span>
+          <strong>Ingest</strong>
+          <p>Bring different document types into one processing path.</p>
+        </div>
+        <div>
+          <span>02</span>
+          <strong>Extract</strong>
+          <p>Pull out useful text, tables and metadata without losing structure.</p>
+        </div>
+        <div>
+          <span>03</span>
+          <strong>Check</strong>
+          <p>Test fallbacks, edge cases and whether the output can be trusted.</p>
         </div>
       </div>
 
