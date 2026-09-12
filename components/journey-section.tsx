@@ -9,11 +9,13 @@ const chapters = [
     index: "04.1",
     place: "Malaysia",
     city: "UTP",
-    year: "2023 — now",
+    year: "2023 — present",
     image: "/journey/utp.webp",
     alt: "Portrait at Universiti Teknologi PETRONAS during an award ceremony",
-    copy: "UTP is where I started taking software seriously — first through coursework, then through projects that became much bigger than coursework.",
-    note: "Information Technology · Universiti Teknologi PETRONAS",
+    copy:
+      "UTP gave me the technical base I still use every day: programming, databases, web systems, object-oriented development and HCI. It also taught me how to work in teams, present ideas clearly and take ownership when the brief was not perfectly defined.",
+    note: "BSc Information Technology · Universiti Teknologi PETRONAS",
+    lessons: ["Software fundamentals", "Team projects", "Leadership"],
   },
   {
     key: "ankara",
@@ -23,8 +25,10 @@ const chapters = [
     year: "2025",
     image: "/journey/ankara.webp",
     alt: "Portrait on a Bilkent University bench in Ankara",
-    copy: "Four months at Bilkent gave me my first real taste of building a life somewhere unfamiliar. It changed how I thought about where I wanted to learn, work and live.",
-    note: "Exchange semester · Bilkent University",
+    copy:
+      "Bilkent was my first time studying and living abroad for a full semester. I had to adapt quickly to a different academic culture, new people and a completely new routine. I came back more independent, more comfortable starting from zero, and much more certain that I want an international career.",
+    note: "Exchange semester · Bilkent University · Ankara",
+    lessons: ["Adaptability", "Independence", "International perspective"],
   },
   {
     key: "bangkok",
@@ -34,8 +38,10 @@ const chapters = [
     year: "2026",
     image: "/journey/bangkok.webp",
     alt: "Portrait at a technology conference in Bangkok",
-    copy: "Bangkok was the first time I lived abroad on my own while working in tech. The work mattered, but so did learning how much I liked being somewhere new.",
-    note: "AI / NLP R&D · Eight-month internship",
+    copy:
+      "Bangkok was my first engineering role abroad. In AI/NLP R&D, I worked on document intelligence, ingestion and extraction pipelines, edge cases across file formats and the async services around them. It taught me to debug uncertain systems, communicate progress clearly and make decisions when the answer was not obvious. Living there on my own made me more independent too.",
+    note: "AI / NLP R&D Intern · Omniscien Technologies · Bangkok",
+    lessons: ["Document intelligence", "Engineering under uncertainty", "Working independently"],
   },
 ];
 
@@ -47,13 +53,13 @@ export function JourneySection() {
       <div className="journey-intro">
         <div className="section-label journey-label">
           <span>04</span>
-          <span>Elsewhere</span>
+          <span>Journey</span>
         </div>
 
         <h2>Malaysia → Ankara → Bangkok.</h2>
         <p>
-          The last few years have been shaped as much by where I lived as by what
-          I built there.
+          University gave me the base. Ankara pushed me out of routine. Bangkok
+          was where the work started to feel real.
         </p>
       </div>
 
@@ -95,6 +101,13 @@ export function JourneySection() {
 
               <h3>{chapter.city}</h3>
               <p>{chapter.copy}</p>
+
+              <div className="journey-lessons" aria-label={`What ${chapter.city} taught me`}>
+                {chapter.lessons.map((lesson) => (
+                  <span key={lesson}>{lesson}</span>
+                ))}
+              </div>
+
               <small>{chapter.note}</small>
             </motion.div>
 
