@@ -1,60 +1,45 @@
 "use client";
 
+import { useState } from "react";
 import { motion, useReducedMotion } from "motion/react";
 
 function MaintenanceVisual() {
   const reduced = Boolean(useReducedMotion());
 
   return (
-    <div className="selected-visual maintenance-visual" aria-label="Abstract engine sensor degradation chart">
+    <div className="selected-visual maintenance-visual" aria-label="Predictive maintenance model result and dataset summary">
       <div className="maintenance-head">
-        <span>Engine / FD001</span>
+        <span>NASA C-MAPSS / FD001</span>
         <span>Remaining useful life</span>
       </div>
 
-      <svg viewBox="0 0 640 360" aria-hidden="true">
-        <g className="chart-grid">
-          <line x1="48" y1="55" x2="608" y2="55" />
-          <line x1="48" y1="120" x2="608" y2="120" />
-          <line x1="48" y1="185" x2="608" y2="185" />
-          <line x1="48" y1="250" x2="608" y2="250" />
-          <line x1="48" y1="315" x2="608" y2="315" />
-        </g>
-        <motion.path
-          className="sensor-line sensor-line--primary"
-          pathLength="1"
-          d="M50 76 C115 86 135 100 183 118 C240 139 260 132 312 168 C357 198 388 203 427 229 C470 258 510 274 590 311"
-          initial={reduced ? false : { pathLength: 0, opacity: 0.3 }}
-          whileInView={reduced ? undefined : { pathLength: 1, opacity: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-        />
-        <motion.path
-          className="sensor-line"
-          pathLength="1"
-          d="M50 111 C112 101 160 125 204 129 C258 135 300 160 344 173 C393 188 434 201 480 218 C524 234 552 249 590 259"
-          initial={reduced ? false : { pathLength: 0, opacity: 0 }}
-          whileInView={reduced ? undefined : { pathLength: 1, opacity: 0.42 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 1.2, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
-        />
-        <motion.line
-          className="rul-marker"
-          x1="483"
-          y1="42"
-          x2="483"
-          y2="320"
-          initial={reduced ? false : { opacity: 0 }}
-          whileInView={reduced ? undefined : { opacity: 1 }}
-          viewport={{ once: true, amount: 0.4 }}
-          transition={{ delay: 0.75, duration: 0.6 }}
-        />
-      </svg>
+      <div className="maintenance-content">
+        <motion.div
+          className="maintenance-result"
+          initial={reduced ? false : { opacity: 0, y: 16 }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <img
+            src="https://raw.githubusercontent.com/shachindran/predictive-maintenance-ai/main/results_graph.png"
+            alt="Predicted versus actual remaining useful life results from the predictive maintenance project"
+            loading="lazy"
+          />
+        </motion.div>
+
+        <div className="maintenance-metrics">
+          <div><span>Input</span><strong>21</strong><small>sensors</small></div>
+          <div><span>Context</span><strong>03</strong><small>operating settings</small></div>
+          <div><span>Target</span><strong>RUL</strong><small>cycles</small></div>
+          <div><span>Model</span><strong>RF</strong><small>random forest</small></div>
+        </div>
+      </div>
 
       <div className="maintenance-foot">
-        <span>21 sensors</span>
-        <span>3 operating settings</span>
-        <span>NASA C-MAPSS</span>
+        <span>Sensor degradation</span>
+        <span>Regression</span>
+        <span>Predict before failure</span>
       </div>
     </div>
   );
@@ -110,25 +95,41 @@ function EnergyVisual() {
 
 function NirtyaVisual() {
   const reduced = Boolean(useReducedMotion());
+  const [loaded, setLoaded] = useState(false);
 
   return (
-    <div className="selected-visual nirtya-visual" aria-label="Nirtya Jothi scroll-driven web experience">
-      <div className="nirtya-frame nirtya-frame--back" aria-hidden="true" />
-      <div className="nirtya-frame nirtya-frame--mid" aria-hidden="true" />
-      <motion.div
-        className="nirtya-frame nirtya-frame--front"
-        initial={reduced ? false : { scale: 0.97, y: 18, opacity: 0.7 }}
-        whileInView={reduced ? undefined : { scale: 1, y: 0, opacity: 1 }}
-        viewport={{ once: true, amount: 0.45 }}
-        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <span className="nirtya-count">240 frames</span>
-        <div className="nirtya-symbol" aria-hidden="true">NJ</div>
-        <strong>Nirtya Jothi</strong>
-        <small>Bharatanatyam · Malaysia</small>
-      </motion.div>
-      <div className="nirtya-progress" aria-hidden="true"><i /></div>
-    </div>
+    <motion.a
+      className="selected-visual nirtya-live-visual"
+      href="https://nirtya-jothi.vercel.app"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="Open the live Nirtya Jothi website"
+      initial={reduced ? false : { opacity: 0.75, scale: 0.985 }}
+      whileInView={reduced ? undefined : { opacity: 1, scale: 1 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="nirtya-browser-bar" aria-hidden="true">
+        <div><i /><i /><i /></div>
+        <span>nirtya-jothi.vercel.app</span>
+        <b>↗</b>
+      </div>
+
+      <div className={`nirtya-site-preview ${loaded ? "is-loaded" : ""}`}>
+        <iframe
+          src="https://nirtya-jothi.vercel.app"
+          title="Nirtya Jothi live website preview"
+          loading="lazy"
+          tabIndex={-1}
+          onLoad={() => setLoaded(true)}
+        />
+        <div className="nirtya-preview-shade" aria-hidden="true" />
+        <div className="nirtya-preview-caption">
+          <span>Live website</span>
+          <strong>Scroll-driven temple experience</strong>
+        </div>
+      </div>
+    </motion.a>
   );
 }
 
@@ -159,7 +160,7 @@ export function SelectedWorkSection() {
             data using NASA&apos;s C-MAPSS dataset.
           </p>
           <div className="selected-project-tags">
-            <span>Python</span><span>Scikit-learn</span><span>RUL</span>
+            <span>Python</span><span>Scikit-learn</span><span>Random Forest</span>
           </div>
           <a href="https://github.com/shachindran/predictive-maintenance-ai" target="_blank" rel="noreferrer">
             View repository <span aria-hidden="true">↗</span>
@@ -203,7 +204,9 @@ export function SelectedWorkSection() {
           <div className="selected-project-tags">
             <span>Next.js</span><span>Scroll sequence</span><span>Web motion</span>
           </div>
-          <span className="selected-private">Private build</span>
+          <a href="https://nirtya-jothi.vercel.app" target="_blank" rel="noreferrer">
+            Visit live site <span aria-hidden="true">↗</span>
+          </a>
         </div>
         <NirtyaVisual />
       </article>
