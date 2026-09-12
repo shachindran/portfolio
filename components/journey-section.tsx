@@ -10,12 +10,15 @@ const chapters = [
     place: "Malaysia",
     city: "UTP",
     year: "2023 — present",
-    image: "/journey/utp.webp",
+    image: "/journey/utp.webp.jpeg",
     alt: "Portrait at Universiti Teknologi PETRONAS during an award ceremony",
     copy:
       "UTP gave me the technical base I still use every day: programming, databases, web systems, object-oriented development and HCI. It also taught me how to work in teams, present ideas clearly and take ownership when the brief was not perfectly defined.",
     note: "BSc Information Technology · Universiti Teknologi PETRONAS",
     lessons: ["Software fundamentals", "Team projects", "Leadership"],
+    brand: "Universiti Teknologi PETRONAS",
+    brandHref: "https://www.utp.edu.my/",
+    brandLogo: "https://www.utp.edu.my/PublishingImages/UTP_LOGO.png",
   },
   {
     key: "ankara",
@@ -23,12 +26,15 @@ const chapters = [
     place: "Türkiye",
     city: "Ankara",
     year: "2025",
-    image: "/journey/ankara.webp",
+    image: "/journey/ankara.webp.jpeg",
     alt: "Portrait on a Bilkent University bench in Ankara",
     copy:
       "Bilkent was my first time studying and living abroad for a full semester. I had to adapt quickly to a different academic culture, new people and a completely new routine. I came back more independent, more comfortable starting from zero, and much more certain that I want an international career.",
     note: "Exchange semester · Bilkent University · Ankara",
     lessons: ["Adaptability", "Independence", "International perspective"],
+    brand: "Bilkent University",
+    brandHref: "https://w3.bilkent.edu.tr/bilkent/",
+    brandLogo: "https://w3.bilkent.edu.tr/logo/ing-amblem.png",
   },
   {
     key: "bangkok",
@@ -36,12 +42,15 @@ const chapters = [
     place: "Thailand",
     city: "Bangkok",
     year: "2026",
-    image: "/journey/bangkok.webp",
+    image: "/journey/bangkok.jpeg",
     alt: "Portrait at a technology conference in Bangkok",
     copy:
       "Bangkok was my first engineering role abroad. In AI/NLP R&D, I worked on document intelligence, ingestion and extraction pipelines, edge cases across file formats and the async services around them. It taught me to debug uncertain systems, communicate progress clearly and make decisions when the answer was not obvious. Living there on my own made me more independent too.",
     note: "AI / NLP R&D Intern · Omniscien Technologies · Bangkok",
     lessons: ["Document intelligence", "Engineering under uncertainty", "Working independently"],
+    brand: "Omniscien Technologies",
+    brandHref: "https://omniscien.com/",
+    brandLogo: "",
   },
 ];
 
@@ -98,6 +107,20 @@ export function JourneySection() {
                 <span>{chapter.place}</span>
                 <span>{chapter.year}</span>
               </div>
+
+              <a
+                className={`journey-brand journey-brand--${chapter.key}`}
+                href={chapter.brandHref}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {chapter.brandLogo ? (
+                  <img src={chapter.brandLogo} alt={`${chapter.brand} logo`} />
+                ) : (
+                  <span className="journey-brand-fallback">OT</span>
+                )}
+                <span>{chapter.brand}</span>
+              </a>
 
               <h3>{chapter.city}</h3>
               <p>{chapter.copy}</p>
