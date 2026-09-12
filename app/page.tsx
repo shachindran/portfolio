@@ -52,9 +52,9 @@ export default function Home() {
         <div className="hero-visual">
           <PortraitStage />
           <p className="side-note">
-            Building useful systems,
+            Software for the parts of work
             <br />
-            one problem at a time.
+            that are still too manual.
           </p>
         </div>
 
@@ -73,19 +73,18 @@ export default function Home() {
         </div>
 
         <div className="about-lead">
-          <h2>I like problems that start messy.</h2>
+          <h2>Most things I build start with a broken workflow.</h2>
           <div className="about-copy">
             <p>
               I’m an Information Technology undergraduate at Universiti Teknologi
-              PETRONAS working across software systems and applied AI. The projects
-              I care about usually start the same way: a real process does not quite
-              fit the software around it.
+              PETRONAS working across software systems and applied AI. I’m drawn to
+              problems where the real process is messier than the software around it.
             </p>
             <p>
-              GASOS came from that. Document intelligence did too. I’m most
-              interested in software systems, document intelligence, multimodal AI
-              and the engineering required to make intelligent systems reliable
-              outside a demo.
+              That is what pulled me into GASOS and document intelligence. I’m most
+              interested in systems that have to deal with imperfect inputs, real
+              operational constraints and people who need the software to work — not
+              just demo well.
             </p>
           </div>
         </div>
@@ -104,10 +103,10 @@ export default function Home() {
           <article>
             <span>Experience</span>
             <strong>AI / NLP R&amp;D</strong>
-            <p>Document Intelligence · Bangkok · 2026</p>
+            <p>Document intelligence · Bangkok · 2026</p>
           </article>
           <article>
-            <span>Current interests</span>
+            <span>Current direction</span>
             <strong>Software systems · Applied AI</strong>
             <p>Document intelligence · Multimodal systems</p>
           </article>
@@ -131,10 +130,10 @@ export default function Home() {
           <span>06</span>
           <span>Contact</span>
         </div>
-        <h2>Have something worth building?</h2>
+        <h2>Working on something difficult?</h2>
         <p>
-          I’m open to engineering opportunities, postgraduate conversations and
-          select collaborations.
+          I’m open to engineering roles, postgraduate opportunities and a small
+          number of collaborations.
         </p>
         <div className="contact-links">
           <a href="mailto:shachindran4@gmail.com">Email ↗</a>
