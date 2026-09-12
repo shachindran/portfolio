@@ -1,6 +1,7 @@
 import { ExperienceSection } from "@/components/experience-section";
 import { GasosExperience } from "@/components/gasos-experience";
 import { PortraitStage } from "@/components/portrait-stage";
+import { SelectedWorkSection } from "@/components/selected-work-section";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <nav className="nav" aria-label="Primary navigation">
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
+          <a href="#selected-work">Projects</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
@@ -59,16 +61,17 @@ export default function Home() {
 
       <GasosExperience />
       <ExperienceSection />
+      <SelectedWorkSection />
 
       <section className="placeholder" id="about">
         <p className="section-label">
           <span>Next</span>
-          <span>Selected work · About</span>
+          <span>Journey · About</span>
         </p>
         <h2>Built carefully. Shown honestly.</h2>
         <p>
-          The next sections will use the same restraint: strong typography,
-          real engineering stories and interaction only where it adds something.
+          The next chapters move away from project detail and into the places,
+          people and decisions that shaped how I work.
         </p>
       </section>
 
