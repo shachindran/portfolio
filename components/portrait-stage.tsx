@@ -80,7 +80,7 @@ export function PortraitStage() {
         }}
       >
         <img
-          src="/portrait/shachin-home-v6.webp"
+          src="/portrait/shachin-home-v7.webp"
           alt=""
           className="portrait-img"
           draggable={false}
@@ -97,7 +97,7 @@ export function PortraitStage() {
         }}
       >
         <img
-          src="/portrait/shachin-home-v6.webp"
+          src="/portrait/shachin-home-v7.webp"
           alt=""
           className="portrait-img"
           draggable={false}
