@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useRef } from "react";
 import {
   motion,
@@ -80,12 +79,11 @@ export function PortraitStage() {
           rotateY: reduceMotion ? 0 : rotateY,
         }}
       >
-        <Image
-          src="/portrait/shachin-home-v4.webp"
+        <img
+          src="/portrait/shachin-home-v5.webp"
           alt=""
-          fill
-          priority
-          sizes="(max-width: 900px) 86vw, 42vw"
+          className="portrait-img"
+          draggable={false}
         />
       </motion.div>
 
@@ -98,12 +96,11 @@ export function PortraitStage() {
           rotateY: reduceMotion ? 0 : rotateY,
         }}
       >
-        <Image
-          src="/portrait/shachin-home-v4.webp"
+        <img
+          src="/portrait/shachin-home-v5.webp"
           alt=""
-          fill
-          priority
-          sizes="(max-width: 900px) 86vw, 42vw"
+          className="portrait-img"
+          draggable={false}
         />
       </motion.div>
 
