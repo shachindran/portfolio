@@ -54,12 +54,12 @@ export function GasosExperience() {
   const progressScale = useTransform(scrollYProgress, [0.08, 0.66], [0.08, 1]);
 
   const rows = [
-    { index: "01", title: "Customer order", detail: "Order enters the day" },
-    { index: "02", title: "Stock allocation", detail: "Inventory is reserved" },
-    { index: "03", title: "Dispatch", detail: "Delivery is prepared" },
-    { index: "04", title: "Delivery", detail: "Physical movement is recorded" },
-    { index: "05", title: "Payment", detail: "Money is tied back to the work" },
-    { index: "06", title: "Day close", detail: "The day is reconciled" },
+    { index: "01", title: "Order & dispatch", detail: "Coordinate the work" },
+    { index: "02", title: "Cylinder custody", detail: "Trace physical movement" },
+    { index: "03", title: "Invoice & receivable", detail: "Link delivery to what is owed" },
+    { index: "04", title: "Payments & cash", detail: "Record collections and handovers" },
+    { index: "05", title: "Buku Penyata", detail: "Build source-linked reporting evidence" },
+    { index: "06", title: "Daily close", detail: "Review differences and exceptions" },
   ];
 
   return (
@@ -87,15 +87,16 @@ export function GasosExperience() {
 
         <div className="gasos-layout">
           <div className="gasos-story">
-            <p className="gasos-story-kicker">Software for LPG distribution.</p>
+            <p className="gasos-story-kicker">Flagship build · LPG operations</p>
             <h3>
-              I started GASOS around a simple problem: one day&apos;s work was
-              being tracked in too many places.
+              Making the physical and financial sides of LPG distribution agree.
             </h3>
             <p>
-              Orders, deliveries, stock and payments all affect each other.
-              GASOS brings that work into one system while keeping the operation
-              traceable from order to day close.
+              GasOS has evolved beyond an order-and-delivery prototype. Its pilot
+              foundation links cylinder custody, fulfilment, invoices, receivables,
+              cash handovers and source-backed reporting. I&apos;m now hardening the
+              controls and validating the operating day before expanding into
+              Pilot One&apos;s planned accounting and fleet workflows.
             </p>
             <a className="case-study-link" href="/work/gasos">
               Read the full case study <span aria-hidden="true">↗</span>
@@ -111,8 +112,8 @@ export function GasosExperience() {
           >
             <div className="gasos-board-head">
               <div>
-                <span>Daily operation</span>
-                <strong>Order → Day close</strong>
+                <span>Operational evidence</span>
+                <strong>Real events → accountable records</strong>
               </div>
               <span>GasOS / 01</span>
             </div>
@@ -138,8 +139,8 @@ export function GasosExperience() {
             </div>
 
             <div className="gasos-board-foot">
-              <span>One operating day</span>
-              <span>One record of what happened</span>
+              <span>Existing pilot foundation</span>
+              <span>Expanded accounting scope is planned</span>
             </div>
           </motion.div>
         </div>
@@ -158,8 +159,7 @@ export function GasosExperience() {
 
         <h2>GASOS</h2>
         <p className="gasos-mobile-lead">
-          I started GASOS around a simple problem: one day&apos;s work was being
-          tracked in too many places.
+          Making the physical and financial sides of LPG distribution agree.
         </p>
 
         <div className="gasos-mobile-board">
@@ -173,9 +173,10 @@ export function GasosExperience() {
         </div>
 
         <p>
-          Orders, deliveries, stock and payments all affect each other. GASOS
-          brings that work into one system while keeping the operation traceable
-          from order to day close.
+          The pilot foundation links cylinder custody, fulfilment, invoices,
+          receivables, cash handovers and Buku Penyata evidence. The next stage
+          adds controlled validation and planned accounting and fleet scope;
+          GasOS is not yet a commercial live system.
         </p>
 
         <a className="case-study-link" href="/work/gasos">
