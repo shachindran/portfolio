@@ -19,19 +19,20 @@ export default function GasosCaseStudy() {
         <div className="case-title-row">
           <h1>GASOS</h1>
           <p>
-            An operational system for LPG distribution businesses, designed around
-            the real flow of orders, delivery, inventory, money and compliance.
+            A pilot-stage operational platform for LPG distributors, connecting
+            physical cylinder custody, customer fulfilment, money and auditable
+            business-day evidence.
           </p>
         </div>
 
         <div className="case-meta-grid">
           <div>
             <span>Role</span>
-            <strong>Product engineering</strong>
+            <strong>Founder · product & software engineering</strong>
           </div>
           <div>
             <span>Status</span>
-            <strong>Pilot validation</strong>
+            <strong>Pilot foundation · controlled validation</strong>
           </div>
           <div>
             <span>Year</span>
@@ -39,7 +40,7 @@ export default function GasosCaseStudy() {
           </div>
           <div>
             <span>Focus</span>
-            <strong>Operations · reliability · auditability</strong>
+            <strong>Domain modelling · correctness · controlled rollout</strong>
           </div>
         </div>
       </section>
@@ -83,7 +84,7 @@ export default function GasosCaseStudy() {
           <i>→</i>
           <span>Delivery</span>
           <i>→</i>
-          <span>Stock</span>
+          <span>Custody</span>
           <i>→</i>
           <span>Payment</span>
         </div>
@@ -164,10 +165,10 @@ export default function GasosCaseStudy() {
           <h2>Evidence before expansion.</h2>
           <div className="case-copy">
             <p>
-              Feature growth was deliberately slowed so the project could move into
-              pilot validation. The current phase is about correctness, field
-              acceptance, shadow operation and whether the workflow is trustworthy
-              enough to use day to day.
+              After building an operational foundation, I shifted focus toward
+              synthetic rehearsals, readiness checks and evidence-based pilot
+              preparation. Planned shadow runs keep existing business records
+              authoritative until the relevant gates have passed.
             </p>
             <p>
               That decision matters more to me than shipping another page of
@@ -178,16 +179,70 @@ export default function GasosCaseStudy() {
         </div>
       </section>
 
+      <section className="case-section case-section--light">
+        <div className="section-label">
+          <span>Implemented foundation</span>
+          <span>What exists in the repository</span>
+        </div>
+        <div className="case-two-col">
+          <h2>More than a delivery tracker.</h2>
+          <div className="case-copy">
+            <p>
+              The application has a NestJS API, a React-based Office and Delivery
+              interface, PostgreSQL migrations and a generated, typed API client.
+              The implemented foundation covers connected operational records:
+              orders and delivery completion, cylinder movements and custody,
+              invoices and receivables, payment allocation and reversals,
+              cash handovers, daily control and source-linked Buku Penyata work.
+            </p>
+            <p>
+              Behind the screens, tenant boundaries, permissions, immutable
+              records, transaction consistency and integration tests matter as
+              much as the visible interface. A change in physical stock must not
+              silently become a financial assumption, and a correction needs
+              traceable evidence rather than an overwritten number.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="case-section case-section--paper">
+        <div className="section-label">
+          <span>Current direction</span>
+          <span>What is planned, not yet shipped</span>
+        </div>
+        <div className="case-two-col">
+          <h2>From a working foundation to a trusted pilot.</h2>
+          <div className="case-copy">
+            <p>
+              The approved Pilot One direction extends beyond the existing
+              operating loop to fleet and driver records, expenses and
+              settlements, native small-business accounting and bounded HR
+              foundations. These are scope decisions and delivery work,
+              not claims that a complete ERP is live today.
+            </p>
+            <p>
+              The rollout is deliberately staged: automated synthetic
+              scenarios first, then parallel shadow validation against
+              existing records, and only then a controlled live transition
+              after the full scope and release checks pass. This work is
+              about earning operational trust, not accumulating dashboards.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <section className="case-section case-section--dark case-close">
         <p className="section-label">
           <span>Next</span>
           <span>Still building</span>
         </p>
-        <h2>The project is not finished. That is part of the point.</h2>
+        <h2>A system of record has to earn trust before it becomes one.</h2>
         <p>
-          GASOS is being developed as a real operating system, not as a portfolio
-          demo. I will keep expanding this case study as the pilot produces stronger
-          evidence and the product earns its next layer of complexity.
+          GasOS is under active development, not a commercially deployed product.
+          Its operational foundation is substantial; the expanded Pilot One scope
+          still requires implementation, verification, shadow evidence and explicit
+          approval before it can replace existing records.
         </p>
         <a href="/">Back to portfolio →</a>
       </section>
