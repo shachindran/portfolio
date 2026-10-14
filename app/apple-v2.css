@@ -364,3 +364,125 @@ footer { background: #1d1d1f; }
   .work-link { transition: none; }
   .work-link:hover { transform: none; }
 }
+
+
+/* GasOS visibility fix (2026-10-15)
+   The old 100svh sticky/overflow-hidden panel clipped the story and CTA
+   in short desktop browser windows. Let content determine section height.
+   Scroll progress still animates the heading and flow rows. */
+.gasos-top-actions {
+  display: flex;
+  align-items: center;
+  gap: clamp(.75rem, 1.6vw, 1.5rem);
+}
+.gasos-top-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 42px;
+  padding: .6rem 1rem;
+  border: 1px solid rgba(255, 255, 255, .34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color .2s ease, border-color .2s ease;
+}
+.gasos-top-cta:hover,
+.gasos-top-cta:focus-visible {
+  background: rgba(255, 255, 255, .18);
+  border-color: rgba(255, 255, 255, .64);
+}
+@media (min-width: 901px) {
+  .gasos-experience {
+    min-height: 0;
+  }
+  .gasos-sticky {
+    position: relative;
+    top: auto;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: clamp(6rem, 9vw, 9rem) var(--pad) clamp(5rem, 8vw, 8rem);
+  }
+  .gasos-title {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: clamp(2rem, 4vw, 4rem) 0 0;
+    font-size: clamp(6rem, 17vw, 16rem);
+    line-height: .8;
+  }
+  .gasos-layout {
+    min-height: 0;
+    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    padding-top: clamp(2.5rem, 5vw, 5rem);
+    padding-bottom: 0;
+  }
+  .gasos-story {
+    align-self: center;
+    max-width: 42rem;
+    padding-bottom: 0;
+  }
+  .gasos-story h3 {
+    max-width: 17ch;
+    font-size: clamp(2.2rem, 3.15vw, 3.85rem);
+    line-height: 1.08;
+  }
+  .gasos-board {
+    width: 100%;
+    margin-left: 0;
+  }
+  .gasos-flow-row {
+    grid-template-columns: 2.2rem minmax(0, .95fr) minmax(0, 1.1fr);
+  }
+  .gasos-scroll-cue {
+    display: none;
+  }
+}
+.gasos-story .case-study-link,
+.gasos-mobile-fallback .case-study-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  min-height: 44px;
+  padding: .78rem 1.2rem;
+  border-radius: 999px;
+  background: #fff;
+  color: #1d1d1f;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color .2s ease, transform .2s ease;
+}
+.gasos-story .case-study-link:hover,
+.gasos-mobile-fallback .case-study-link:hover {
+  background: #e8e8ed;
+  transform: translateY(-1px);
+}
+.gasos-story .case-study-link::after,
+.gasos-mobile-fallback .case-study-link::after {
+  display: none;
+}
+@media (max-width: 900px) {
+  .gasos-mobile-fallback .case-study-link {
+    margin-top: 1.9rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gasos-top-cta,
+  .gasos-story .case-study-link,
+  .gasos-mobile-fallback .case-study-link {
+    transition: none;
+  }
+  .gasos-story .case-study-link:hover,
+  .gasos-mobile-fallback .case-study-link:hover {
+    transform: none;
+  }
+}
