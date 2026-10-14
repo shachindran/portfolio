@@ -1,15 +1,16 @@
 .gasos-experience {
   position: relative;
-  min-height: 210svh;
+  min-height: 0;
   background: #151512;
   color: #f4f1e9;
 }
 
 .gasos-sticky {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
+  position: relative;
+  top: auto;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
   padding: clamp(5.6rem, 6.5vw, 6.4rem) var(--pad) clamp(3rem, 6vh, 4.6rem);
 }
 
@@ -30,9 +31,9 @@
 }
 
 .gasos-title {
-  position: absolute;
-  left: calc(var(--pad) - 0.03em);
-  top: clamp(6.8rem, 9.5vh, 8.2rem);
+  position: relative;
+  left: auto;
+  top: auto;
   margin: 0;
   font-size: clamp(8.5rem, 23vw, 22rem);
   font-weight: 540;
@@ -51,8 +52,8 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(440px, 1.1fr);
   align-items: center;
   gap: clamp(3rem, 6.5vw, 6.5rem);
-  min-height: calc(100svh - 10rem);
-  padding-top: clamp(11.5rem, 22vh, 14.5rem);
+  min-height: 0;
+  padding-top: clamp(2.5rem, 5vw, 5rem);
   padding-bottom: clamp(2rem, 4vh, 3.2rem);
 }
 
@@ -230,15 +231,15 @@
 }
 
 @media (max-height: 800px) and (min-width: 901px) {
-  .gasos-experience { min-height: 225svh; }
+  .gasos-experience { min-height: 0; }
   .gasos-sticky { padding-top: 4.8rem; padding-bottom: 2.8rem; }
   .gasos-title {
     top: 5.9rem;
     font-size: clamp(7rem, 18vw, 16rem);
   }
   .gasos-layout {
-    min-height: calc(100svh - 8rem);
-    padding-top: 9.5rem;
+    min-height: 0;
+    padding-top: clamp(2.5rem, 5vw, 5rem);
     padding-bottom: 1.5rem;
   }
   .gasos-story h3 { font-size: clamp(2.05rem, 3vw, 3.2rem); }
@@ -322,5 +323,5 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .gasos-experience { min-height: 100svh; }
+  .gasos-experience { min-height: 0; }
 }
