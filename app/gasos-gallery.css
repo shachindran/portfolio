@@ -1,0 +1,43 @@
+/* GasOS product presentation — self-contained and responsive */
+.gasos-product-gallery{position:relative;overflow:hidden;background:#f5f5f7;color:#1d1d1f;padding:clamp(5rem,9vw,9rem) clamp(1rem,5vw,5rem) clamp(3rem,6vw,6rem)}
+.gasos-product-intro{max-width:1080px;margin:0 auto;text-align:center}
+.gasos-product-intro .section-label{justify-content:space-between;text-align:left}
+.gasos-product-eyebrow{margin:clamp(3.5rem,6vw,6rem) auto 1rem;color:#626267;font-size:clamp(.85rem,1.1vw,1rem);font-weight:600}
+.gasos-product-intro h2{max-width:14ch;margin:0 auto;color:#1d1d1f;font-size:clamp(3rem,7.7vw,7.2rem);letter-spacing:-.067em;line-height:1.03;font-weight:650}
+.gasos-product-intro>p:last-child{max-width:43rem;margin:1.5rem auto 0;color:#63636b;font-size:clamp(1.06rem,1.5vw,1.45rem);line-height:1.55}
+.gasos-product-stage{position:relative;isolation:isolate;max-width:1450px;margin:clamp(2rem,5vw,5rem) auto 0}
+.gasos-stage-orbit{position:absolute;z-index:-1;inset:5% 1%;border-radius:50%;background:radial-gradient(ellipse at 50% 45%,#dcefeb 0%,#e9effb 33%,transparent 73%);filter:blur(35px)}
+.gasos-stage-image-frame{overflow:hidden;border-radius:clamp(18px,2.8vw,34px);background:linear-gradient(140deg,#fcffff,#dfeae9);box-shadow:0 34px 90px rgba(28,47,62,.10),0 2px 12px rgba(28,47,62,.05);border:1px solid rgba(255,255,255,.8)}
+.gasos-product-image{display:block;width:100%;height:auto;aspect-ratio:1672/941;object-fit:contain}
+.gasos-product-stage figcaption,.gasos-workflow-figure figcaption{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.7rem;margin-top:1.15rem;color:#77777f;font:600 .69rem/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.035em}
+.gasos-preview-demo{display:grid;grid-template-columns:minmax(120px,.22fr) 1fr;aspect-ratio:1672/941;min-height:330px;color:#183039;background:#f5f8f9}
+.gasos-demo-rail{display:flex;flex-direction:column;gap:.55rem;padding:clamp(1rem,2vw,2.5rem);background:linear-gradient(180deg,#092c30,#07544d);color:#edfdf8}
+.gasos-demo-rail strong{margin-bottom:1rem;font-size:clamp(.7rem,1.5vw,1.25rem)}
+.gasos-demo-rail strong small{display:block;font-size:.55em;font-weight:400;opacity:.8}
+.gasos-demo-mark{color:#5ef1b7}
+.gasos-demo-rail>span{padding:.6rem .75rem;border-radius:8px;font-size:clamp(.52rem,.86vw,.84rem);opacity:.78}
+.gasos-demo-rail .gasos-demo-rail-active{background:rgba(56,222,158,.28);opacity:1}
+.gasos-demo-content{min-width:0;padding:clamp(1rem,3vw,3rem)}
+.gasos-demo-toolbar{display:flex;justify-content:space-between;gap:1rem;color:#46737e;font-size:clamp(.6rem,.9vw,.85rem)}
+.gasos-demo-toolbar i{font-style:normal}
+.gasos-demo-content h3{margin:clamp(1rem,2.4vw,2.5rem) 0;font-size:clamp(1.1rem,2.5vw,2.8rem);letter-spacing:-.04em}
+.gasos-demo-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.3rem,1vw,1rem)}
+.gasos-demo-tiles>div{min-height:80px;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(.5rem,1vw,1rem);border:1px solid #e5eaf0;border-radius:12px;background:white;font-size:clamp(.56rem,1vw,1rem)}
+.gasos-demo-tiles b{color:#168c72;font-size:1.6rem}
+.gasos-demo-panels{display:grid;grid-template-columns:1.3fr 1fr;gap:1rem;margin-top:1rem}
+.gasos-demo-panels>div{display:flex;flex-direction:column;gap:.7rem;min-height:140px;background:#fff;border:1px solid #e5eaf0;border-radius:12px;padding:1rem}
+.gasos-demo-panels strong{font-size:clamp(.6rem,1vw,.96rem)}
+.gasos-demo-panels i{height:10px;width:80%;border-radius:4px;background:linear-gradient(90deg,#d9e5ed,#f3f7f8)}
+.gasos-demo-panels i:nth-child(3){width:60%}
+.gasos-demo-footer{margin-top:1rem;color:#66808a;font-size:.8rem}
+.gasos-workflow-figure{margin:clamp(2.5rem,6vw,6rem) auto 0;max-width:1460px}
+.gasos-workflow-image-frame{overflow:hidden;border-radius:clamp(16px,2.5vw,30px);background:#f8fbfd;border:1px solid #e5e8ee;box-shadow:0 20px 70px rgba(15,28,45,.06)}
+.gasos-workflow-demo{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(.5rem,1.2vw,1.25rem);align-items:center;padding:clamp(1.2rem,3vw,3rem);aspect-ratio:1672/941;color:#1d293b;background:radial-gradient(ellipse at 50% 100%,#e3f5f1,transparent 65%),#f8fbfd}
+.gasos-workflow-step{position:relative;display:flex;min-height:170px;flex-direction:column;justify-content:center;gap:1rem;padding:clamp(.6rem,1vw,1.2rem);background:rgba(255,255,255,.85);border:1px solid #e3eaf0;border-radius:20px;box-shadow:0 12px 24px rgba(20,42,64,.06);text-align:center}
+.gasos-workflow-step>span{font:600 .75rem ui-monospace,monospace;color:#05826e}
+.gasos-workflow-step strong{font-size:clamp(.7rem,1.25vw,1.35rem)}
+.gasos-workflow-step small{color:#7d8796;font-size:clamp(.5rem,.8vw,.75rem)}
+.case-section--dark .gasos-workflow-figure figcaption{color:#aaaeb6}
+@media(max-width:900px){.gasos-workflow-demo{grid-template-columns:repeat(3,minmax(0,1fr));aspect-ratio:auto}.gasos-workflow-step{min-height:120px}.gasos-demo-footer{display:none}}
+@media(max-width:600px){.gasos-product-gallery{padding-inline:1rem}.gasos-product-intro h2{font-size:clamp(2.65rem,11.5vw,4.5rem)}.gasos-preview-demo{grid-template-columns:72px 1fr;min-height:240px}.gasos-demo-rail{padding:.5rem;gap:.3rem}.gasos-demo-rail>span{padding:.4rem .2rem;font-size:.47rem}.gasos-demo-content{padding:.7rem}.gasos-demo-content h3{margin:1rem 0;font-size:1rem}.gasos-demo-toolbar i,.gasos-demo-panels{display:none}.gasos-demo-tiles{grid-template-columns:repeat(2,1fr)}.gasos-demo-tiles>div{min-height:55px}.gasos-workflow-demo{grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem;padding:.8rem}.gasos-workflow-step{border-radius:12px;min-height:95px}.gasos-product-stage figcaption,.gasos-workflow-figure figcaption{font-size:.59rem}}
+@media(prefers-reduced-motion:reduce){.gasos-product-stage,.gasos-workflow-figure{transform:none!important}}
