@@ -68,7 +68,7 @@ export function GasosExperience() {
         <div className="gasos-topline">
           <div className="section-label">
             <span>01</span>
-            <span>Featured project</span>
+            <span>Featured product</span>
           </div>
           <div className="gasos-top-actions">
             <span className="gasos-year">2026</span>
@@ -87,16 +87,16 @@ export function GasosExperience() {
 
         <div className="gasos-layout">
           <div className="gasos-story">
-            <p className="gasos-story-kicker">Flagship build · LPG operations</p>
+            <p className="gasos-story-kicker">Vertical SaaS · LPG distribution</p>
             <h3>
-              Making the physical and financial sides of LPG distribution agree.
+              One connected platform for LPG distribution.
             </h3>
             <p>
-              GasOS has evolved beyond an order-and-delivery prototype. Its pilot
-              foundation links cylinder custody, fulfilment, invoices, receivables,
-              cash handovers and source-backed reporting. I&apos;m now hardening the
-              controls and validating the operating day before expanding into
-              Pilot One&apos;s planned accounting and fleet workflows.
+              Designed and engineered for the daily realities of LPG businesses,
+              GasOS connects orders, deliveries, cylinder inventory, invoicing,
+              payments and Buku Penyata reporting. The platform is expanding
+              into native accounting, expenses, fleet operations and business
+              management within one integrated product.
             </p>
             <a className="case-study-link" href="/work/gasos">
               Read the full case study <span aria-hidden="true">↗</span>
@@ -112,8 +112,8 @@ export function GasosExperience() {
           >
             <div className="gasos-board-head">
               <div>
-                <span>Operational evidence</span>
-                <strong>Real events → accountable records</strong>
+                <span>GasOS platform</span>
+                <strong>From order to business-day close</strong>
               </div>
               <span>GasOS / 01</span>
             </div>
@@ -139,8 +139,8 @@ export function GasosExperience() {
             </div>
 
             <div className="gasos-board-foot">
-              <span>Existing pilot foundation</span>
-              <span>Expanded accounting scope is planned</span>
+              <span>GasOS Office + Delivery</span>
+              <span>Connected operations, built for LPG</span>
             </div>
           </motion.div>
         </div>
@@ -173,10 +173,10 @@ export function GasosExperience() {
         </div>
 
         <p>
-          The pilot foundation links cylinder custody, fulfilment, invoices,
-          receivables, cash handovers and Buku Penyata evidence. The next stage
-          adds controlled validation and planned accounting and fleet scope;
-          GasOS is not yet a commercial live system.
+          GasOS brings orders, deliveries, cylinder inventory, invoices, payments,
+          cash handovers and Buku Penyata into one connected workspace.
+          Development is expanding the platform with accounting, expenses,
+          fleet management and additional business operations.
         </p>
 
         <a className="case-study-link" href="/work/gasos">
