@@ -21,7 +21,7 @@ type FlowRowProps = {
 function FlowRow({ index, title, detail, progress, order, reduced }: FlowRowProps) {
   const start = 0.12 + order * 0.075;
   const end = start + 0.18;
-  const opacity = useTransform(progress, [start, end], [0.28, 1]);
+  const opacity = useTransform(progress, [start, end], [0.82, 1]);
   const x = useTransform(progress, [start, end], [22, 0]);
 
   return (
@@ -45,12 +45,12 @@ export function GasosExperience() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start start", "end end"],
+    offset: ["start end", "end start"],
   });
 
   const titleY = useTransform(scrollYProgress, [0, 1], [18, -42]);
   const boardY = useTransform(scrollYProgress, [0.06, 0.72], [36, 0]);
-  const boardOpacity = useTransform(scrollYProgress, [0.04, 0.24], [0.5, 1]);
+  const boardOpacity = useTransform(scrollYProgress, [0.04, 0.24], [0.92, 1]);
   const progressScale = useTransform(scrollYProgress, [0.08, 0.66], [0.08, 1]);
 
   const rows = [
@@ -70,7 +70,12 @@ export function GasosExperience() {
             <span>01</span>
             <span>Featured project</span>
           </div>
-          <span className="gasos-year">2026</span>
+          <div className="gasos-top-actions">
+            <span className="gasos-year">2026</span>
+            <a className="gasos-top-cta" href="/work/gasos">
+              Full case study <span aria-hidden="true">↗</span>
+            </a>
+          </div>
         </div>
 
         <motion.h2
@@ -93,7 +98,7 @@ export function GasosExperience() {
               traceable from order to day close.
             </p>
             <a className="case-study-link" href="/work/gasos">
-              View the case study <span aria-hidden="true">↗</span>
+              Read the full case study <span aria-hidden="true">↗</span>
             </a>
           </div>
 
@@ -174,7 +179,7 @@ export function GasosExperience() {
         </p>
 
         <a className="case-study-link" href="/work/gasos">
-          View the case study <span aria-hidden="true">↗</span>
+          Read the full case study <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
