@@ -1,0 +1,68 @@
+/* Development-only finishing pass: accessible navigation and smaller-screen polish.
+   This file is imported last, and can be removed as one unit if necessary. */
+
+@media (max-width: 900px) {
+  .site-header {
+    overflow: visible;
+    z-index: 50;
+  }
+
+  /* The previous layout hid every section link on phones and tablets.
+     Present an independently scrollable navigation shelf instead. */
+  .site-header .nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(100% + 8px);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(.85rem, 3vw, 1.5rem);
+    width: 100%;
+    max-width: 100%;
+    padding: .55rem 1rem;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+    border-radius: 999px;
+    border: 1px solid rgba(29,29,31,.09);
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(18px) saturate(160%);
+    -webkit-backdrop-filter: blur(18px) saturate(160%);
+    box-shadow: 0 8px 24px rgba(16,16,18,.05);
+    white-space: nowrap;
+  }
+
+  .site-header .nav::-webkit-scrollbar { display: none; }
+  .site-header .nav a {
+    flex: 0 0 auto;
+    min-height: 36px;
+    display: inline-flex;
+    align-items: center;
+    font-size: 12px;
+    color: #1d1d1f;
+  }
+
+  .hero-copy { padding-top: clamp(10.3rem, 15vh, 12rem); }
+  .gasos-mobile-fallback { padding-top: clamp(6.5rem, 14vw, 8rem); }
+  section[id] { scroll-margin-top: 8.5rem; }
+}
+
+@media (max-width: 620px) {
+  .hero-copy { padding-top: 10.2rem; }
+  .site-header .nav { padding-inline: .7rem; }
+  .site-header .resume-link { min-height: 36px; }
+
+  .case-title-row,
+  .case-two-col,
+  .selected-project,
+  .journey-chapter { min-width: 0; }
+
+  .case-title-row h1 { font-size: clamp(4.7rem, 23vw, 7rem); }
+  .case-hero { padding-top: clamp(7rem, 14vw, 9rem); }
+  .case-study-nav a { overflow-wrap: anywhere; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav { scroll-behavior: auto; }
+}
