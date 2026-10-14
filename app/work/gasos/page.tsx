@@ -1,3 +1,5 @@
+import { GasosProductGallery, GasosWorkflowVisual } from "@/components/gasos-product-gallery";
+
 export default function GasosCaseStudy() {
   return (
     <main className="case-study-page">
@@ -44,6 +46,8 @@ export default function GasosCaseStudy() {
         </div>
       </section>
 
+      <GasosProductGallery />
+
       <section className="case-section case-section--light">
         <div className="section-label">
           <span>Problem</span>
@@ -87,6 +91,8 @@ export default function GasosCaseStudy() {
           <i>→</i>
           <span>Payment</span>
         </div>
+
+        <GasosWorkflowVisual />
 
         <div className="case-callout-grid">
           <article>
