@@ -66,3 +66,24 @@
 @media (prefers-reduced-motion: reduce) {
   .site-header .nav { scroll-behavior: auto; }
 }
+
+
+/* Hero framing: more room for shoulders without stretching the source image. */
+.hero-visual,.portrait-stage{min-width:0}
+.portrait-person{inset:6% 7% 0 7%;transform-origin:center bottom}
+.portrait-person img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom;image-rendering:auto;filter:drop-shadow(0 16px 30px rgba(22,22,22,.08))}
+.portrait-shadow{width:46%;left:27%;bottom:1.5%;opacity:.2}
+@media(max-width:900px){.portrait-person{inset:5% 10% 0}}
+@media(max-width:620px){.portrait-person{inset:5% 7% 0}}
+
+/* GasOS media: consistent native proportions and restrained hover depth. */
+.gasos-product-stage,.gasos-workflow-figure{min-width:0}
+.gasos-stage-image-frame,.gasos-workflow-image-frame{overflow:hidden}
+.gasos-product-image{display:block;width:100%;max-width:100%;height:auto;object-fit:contain}
+.gasos-stage-orbit{opacity:.44}
+.gasos-product-stage figcaption,.gasos-workflow-figure figcaption{line-height:1.6}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ .gasos-stage-image-frame{transition:box-shadow 500ms cubic-bezier(.22,1,.36,1),transform 500ms cubic-bezier(.22,1,.36,1)}
+ .gasos-product-stage:hover .gasos-stage-image-frame{transform:translateY(-3px);box-shadow:0 36px 90px rgba(28,47,62,.12),0 2px 12px rgba(28,47,62,.045)}
+}
+@media(prefers-reduced-motion:reduce){.gasos-stage-image-frame{transition:none!important;transform:none!important}}
