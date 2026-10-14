@@ -8,6 +8,7 @@ import "./about.css";
 import "./header.css";
 import "./portrait.css";
 import "./polish.css";
+import "./apple-v2.css";
 
 export const metadata: Metadata = {
   title: "Shachindran Veerangan — Software, AI & Systems",
