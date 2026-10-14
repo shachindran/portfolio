@@ -19,9 +19,8 @@ export default function GasosCaseStudy() {
         <div className="case-title-row">
           <h1>GASOS</h1>
           <p>
-            A pilot-stage operational platform for LPG distributors, connecting
-            physical cylinder custody, customer fulfilment, money and auditable
-            business-day evidence.
+            A purpose-built SaaS platform bringing LPG distribution operations,
+            inventory, delivery, finance and business reporting together.
           </p>
         </div>
 
@@ -32,7 +31,7 @@ export default function GasosCaseStudy() {
           </div>
           <div>
             <span>Status</span>
-            <strong>Pilot foundation · controlled validation</strong>
+            <strong>Active product development</strong>
           </div>
           <div>
             <span>Year</span>
@@ -40,7 +39,7 @@ export default function GasosCaseStudy() {
           </div>
           <div>
             <span>Focus</span>
-            <strong>Domain modelling · correctness · controlled rollout</strong>
+            <strong>LPG operations · SaaS architecture · accounting</strong>
           </div>
         </div>
       </section>
@@ -52,18 +51,18 @@ export default function GasosCaseStudy() {
         </div>
 
         <div className="case-two-col">
-          <h2>Daily operations should not depend on memory and reconstruction.</h2>
+          <h2>Built for how LPG distribution actually works.</h2>
           <div className="case-copy">
             <p>
-              A distribution business can look simple from the outside: take an
-              order, send a delivery, collect payment. In practice, the same job
-              changes stock, customer balances, delivery status and physical
-              custody at the same time.
+              Every delivery connects multiple parts of the business: customer orders,
+              cylinder stock, vehicle and staff activity, invoices, payments
+              and the day's financial position. GasOS brings those
+              relationships into a single operational platform.
             </p>
             <p>
-              When those changes live across paper, messaging, spreadsheets and
-              staff memory, the hard part becomes figuring out what is actually
-              true at the end of the day.
+              Built specifically for LPG distributors, its workflows bring clarity
+              to day-to-day work while keeping each important business event
+              connected to its source.
             </p>
           </div>
         </div>
@@ -72,7 +71,7 @@ export default function GasosCaseStudy() {
       <section className="case-section case-section--dark">
         <div className="section-label">
           <span>System</span>
-          <span>One operational flow</span>
+          <span>Connected business workflows</span>
         </div>
 
         <div className="flow-strip" aria-label="GASOS operating flow">
@@ -92,26 +91,26 @@ export default function GasosCaseStudy() {
         <div className="case-callout-grid">
           <article>
             <span>01</span>
-            <h3>Operational first.</h3>
+            <h3>Connected operations.</h3>
             <p>
-              The system follows the work as it happens instead of forcing the
-              business to reconstruct it later.
+              Orders, dispatch, deliveries and cylinder movements are coordinated
+              around the same operating day.
             </p>
           </article>
           <article>
             <span>02</span>
-            <h3>Accurate underneath.</h3>
+            <h3>Financial clarity.</h3>
             <p>
-              Important changes are designed to be traceable, consistent and hard
-              to lose across connected workflows.
+              Invoices, receivables, collections and cash custody connect business
+              activity with financial records.
             </p>
           </article>
           <article>
             <span>03</span>
-            <h3>Simple at the surface.</h3>
+            <h3>Purpose-built workspaces.</h3>
             <p>
-              Office and delivery workflows stay focused on the task in front of
-              the user, while the underlying model carries the complexity.
+              Dedicated Office and Delivery experiences organise the platform
+              around the people using it.
             </p>
           </article>
         </div>
@@ -120,21 +119,23 @@ export default function GasosCaseStudy() {
       <section className="case-section case-section--light">
         <div className="section-label">
           <span>Engineering</span>
-          <span>Choosing restraint</span>
+          <span>Engineered for connected workflows</span>
         </div>
 
         <div className="case-two-col">
-          <h2>A modular monolith was the practical choice.</h2>
+          <h2>A modern, modular platform built for operational integrity.</h2>
           <div className="case-copy">
             <p>
-              The domains are tightly connected and often need transactional
-              consistency. Splitting them into distributed services would add more
-              infrastructure, more debugging surface and more failure modes before
-              the product had earned that complexity.
+              GasOS uses a modular NestJS backend, PostgreSQL and a React frontend,
+              with a generated TypeScript API client connecting its interfaces.
+              Domain boundaries keep inventory, fulfilment and finance organised
+              while shared transactions protect connected business operations.
             </p>
             <p>
-              The architecture keeps module boundaries explicit while retaining a
-              shared relational database and straightforward deployment model.
+              Its engineering foundation includes tenant-aware access controls,
+              traceable records, migration-managed data models and automated
+              integration tests. These decisions support a maintainable SaaS
+              architecture designed to grow with the product.
             </p>
           </div>
         </div>
@@ -150,30 +151,30 @@ export default function GasosCaseStudy() {
 
       <section className="case-section case-section--paper">
         <div className="section-label">
-          <span>Validation</span>
-          <span>Knowing when to stop adding features</span>
+          <span>Product design</span>
+          <span>Built for real operational complexity</span>
         </div>
 
         <div className="case-quote">
           <p>
-            “The question stopped being ‘what else should it contain?’ and became
-            ‘what is the minimum that makes a real operator trust it?’”
+            “Capture the business event once. Keep operations, stock and
+            financial records connected.”
           </p>
         </div>
 
         <div className="case-two-col case-two-col--compact">
-          <h2>Evidence before expansion.</h2>
+          <h2>Less repetitive work. Better operational visibility.</h2>
           <div className="case-copy">
             <p>
-              After building an operational foundation, I shifted focus toward
-              synthetic rehearsals, readiness checks and evidence-based pilot
-              preparation. Planned shadow runs keep existing business records
-              authoritative until the relevant gates have passed.
+              GasOS is designed around real LPG distribution workflows:
+              recording an order, moving cylinders, completing a delivery,
+              issuing an invoice and reconciling the business day.
+              Each action belongs to a connected operating model.
             </p>
             <p>
-              That decision matters more to me than shipping another page of
-              features. A system like this only becomes useful when people can rely
-              on it.
+              The experience combines straightforward day-to-day screens
+              with carefully modelled transactions and traceable business
+              records underneath.
             </p>
           </div>
         </div>
@@ -181,26 +182,24 @@ export default function GasosCaseStudy() {
 
       <section className="case-section case-section--light">
         <div className="section-label">
-          <span>Implemented foundation</span>
-          <span>What exists in the repository</span>
+          <span>Platform capabilities</span>
+          <span>Built around the business</span>
         </div>
         <div className="case-two-col">
-          <h2>More than a delivery tracker.</h2>
+          <h2>Everyday operations. One connected system.</h2>
           <div className="case-copy">
             <p>
-              The application has a NestJS API, a React-based Office and Delivery
-              interface, PostgreSQL migrations and a generated, typed API client.
-              The implemented foundation covers connected operational records:
-              orders and delivery completion, cylinder movements and custody,
-              invoices and receivables, payment allocation and reversals,
-              cash handovers, daily control and source-linked Buku Penyata work.
+              The GasOS foundation brings together customer and order management,
+              delivery completion, cylinder movement and custody records,
+              supplier receiving, invoicing, receivables and payment allocation.
+              Operational-day controls, cash handovers and Buku Penyata
+              reporting connect daily work with its financial evidence.
             </p>
             <p>
-              Behind the screens, tenant boundaries, permissions, immutable
-              records, transaction consistency and integration tests matter as
-              much as the visible interface. A change in physical stock must not
-              silently become a financial assumption, and a correction needs
-              traceable evidence rather than an overwritten number.
+              The platform is designed around reliable business records:
+              permissions, immutable event history, auditable corrections and
+              clear distinctions between physical custody and financial
+              ownership.
             </p>
           </div>
         </div>
@@ -208,25 +207,24 @@ export default function GasosCaseStudy() {
 
       <section className="case-section case-section--paper">
         <div className="section-label">
-          <span>Current direction</span>
-          <span>What is planned, not yet shipped</span>
+          <span>Platform expansion</span>
+          <span>Accounting · fleet · business management</span>
         </div>
         <div className="case-two-col">
-          <h2>From a working foundation to a trusted pilot.</h2>
+          <h2>Building a more complete operating system for LPG businesses.</h2>
           <div className="case-copy">
             <p>
-              The approved Pilot One direction extends beyond the existing
-              operating loop to fleet and driver records, expenses and
-              settlements, native small-business accounting and bounded HR
-              foundations. These are scope decisions and delivery work,
-              not claims that a complete ERP is live today.
+              Development is expanding GasOS into native SME accounting,
+              including accounts payable, expenses, financial statements,
+              bank reconciliation and inventory valuation. The product
+              direction also includes fleet and driver management,
+              transporter settlement and staff administration.
             </p>
             <p>
-              The rollout is deliberately staged: automated synthetic
-              scenarios first, then parallel shadow validation against
-              existing records, and only then a controlled live transition
-              after the full scope and release checks pass. This work is
-              about earning operational trust, not accumulating dashboards.
+              These capabilities extend the existing operational foundation
+              into a connected, industry-specific business management
+              experience. The roadmap combines product development with
+              testing, operational pilots and release readiness.
             </p>
           </div>
         </div>
@@ -235,14 +233,14 @@ export default function GasosCaseStudy() {
       <section className="case-section case-section--dark case-close">
         <p className="section-label">
           <span>Next</span>
-          <span>Still building</span>
+          <span>GasOS · 2026</span>
         </p>
-        <h2>A system of record has to earn trust before it becomes one.</h2>
+        <h2>One platform. From daily operations to business intelligence.</h2>
         <p>
-          GasOS is under active development, not a commercially deployed product.
-          Its operational foundation is substantial; the expanded Pilot One scope
-          still requires implementation, verification, shadow evidence and explicit
-          approval before it can replace existing records.
+          I am building GasOS as an integrated software platform for LPG
+          distribution businesses: practical operational tools, connected
+          financial records and a scalable foundation for the next generation
+          of industry-specific business software.
         </p>
         <a href="/">Back to portfolio →</a>
       </section>
