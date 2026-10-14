@@ -103,7 +103,7 @@ export function GasosProductGallery() {
         <div className="gasos-stage-orbit" aria-hidden="true" />
         <div className="gasos-stage-image-frame">
           <ProductPreview
-            src="/gasos/dashboard-showcase.webp"
+            src="/dashboard-showcase.webp"
             variant="dashboard"
             alt="Illustrative GasOS Office dashboard collage showing delivery, inventory, invoicing, payments and daily reconciliation screens"
           />
@@ -129,7 +129,7 @@ export function GasosWorkflowVisual() {
     >
       <div className="gasos-workflow-image-frame">
         <ProductPreview
-          src="/gasos/workflow-overview.webp"
+          src="/workflow-overview.webp"
           variant="workflow"
           alt="Illustrated six-stage GasOS workflow, from order and stock allocation through dispatch, delivery, payment and day close"
         />
