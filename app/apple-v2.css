@@ -1,0 +1,366 @@
+/* Portfolio V2: editorial-first visual prototype.
+   Three neutral surfaces; action blue is interactive only.
+   Deliberately no new animation dependencies or image assets. */
+
+:root {
+  --paper: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #646469;
+  --line: rgba(29, 29, 31, .1);
+  --acid: #0066cc;
+  --dark: #1d1d1f;
+  --pad: clamp(1.2rem, 4.2vw, 5rem);
+  --v2-surface: #f5f5f7;
+  --v2-action: #0066cc;
+  --v2-radius: 24px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  color: var(--ink);
+  background: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  letter-spacing: -.012em;
+}
+a:focus-visible, button:focus-visible {
+  outline: 3px solid #0066cc;
+  outline-offset: 5px;
+  border-radius: 4px;
+}
+::selection { background: rgba(0,102,204,.2); }
+
+/* Function-first frosted navigation. No luminous gradients or heavy shadows. */
+.site-header {
+  top: 16px;
+  height: 56px;
+  width: min(calc(100% - 32px), 1280px);
+  border: 1px solid rgba(29, 29, 31, .07);
+  border-radius: 18px;
+  background: rgba(255,255,255,.87);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 3px 18px rgba(0,0,0,.035);
+}
+.site-header::before { display: none; }
+.wordmark {
+  width: 34px;
+  height: 34px;
+  background: var(--v2-surface);
+  border: 0;
+  box-shadow: none;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+.nav { gap: clamp(.6rem,1.2vw,1.3rem); font-size: 13px; }
+.nav a, .resume-link {
+  padding: .52rem .48rem;
+  font-size: 13px;
+  font-weight: 450;
+  transition: opacity .2s ease, color .2s ease, background-color .2s ease;
+}
+.nav a:hover, .resume-link:hover {
+  transform: none;
+  opacity: .72;
+  background: transparent;
+}
+.resume-link { font-weight: 600; color: var(--v2-action); }
+.resume-link:focus-visible { border-radius: 6px; }
+
+/* Open with the person and the work, not a floating-effects showcase. */
+.hero {
+  background: #fff;
+  min-height: 100svh;
+  grid-template-columns: minmax(0,1.06fr) minmax(0,.94fr);
+  border-bottom: 0;
+}
+.hero-copy {
+  padding: clamp(8rem,16vh,12rem) var(--pad) clamp(4rem,9vh,7rem);
+  align-self: center;
+}
+.kicker {
+  margin-bottom: 1.35rem;
+  font-family: inherit;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: none;
+}
+.hero h1 {
+  max-width: none;
+  font-size: clamp(3.5rem, 6.7vw, 7.5rem);
+  line-height: .99;
+  letter-spacing: -.06em;
+  font-weight: 600;
+}
+.hero-line {
+  max-width: 35rem;
+  margin-top: 1.7rem;
+  font-size: clamp(1.25rem, 2.1vw, 2rem);
+  line-height: 1.2;
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+.hero-meta {
+  margin-top: 1.6rem;
+  font-family: inherit;
+  font-size: 12px;
+  letter-spacing: .012em;
+  text-transform: none;
+  color: var(--muted);
+}
+.work-link {
+  margin-top: clamp(2.3rem,5vh,4rem);
+  align-items: center;
+  padding: .8rem 1.3rem;
+  width: fit-content;
+  border: 1px solid var(--v2-action);
+  border-radius: 999px;
+  background: var(--v2-action);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  transition: opacity .22s ease, transform .22s ease;
+}
+.work-link:hover { opacity: .91; transform: translateY(-1px); }
+.work-link::after { display: none; }
+.hero-visual {
+  min-height: 100svh;
+  background: var(--v2-surface);
+  box-shadow: none;
+}
+.portrait-frame, .portrait-orbit, .portrait-halo, .portrait-ghost, .portrait-mark {
+  display: none;
+}
+.portrait-person { inset: 8% -2% -1% 0; filter: grayscale(1); }
+.portrait-person img {
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,.045));
+  mix-blend-mode: normal;
+}
+.portrait-shadow { opacity: .3; filter: blur(30px); }
+.hero-index, .portrait-caption, .side-note { color: rgba(29,29,31,.38); }
+.hero-index, .portrait-caption, .side-note { font-family: inherit; }
+.side-note { font-size: 11px; letter-spacing: .035em; }
+
+/* Design credibility comes from product proof: keep GASOS visually dominant. */
+.gasos-experience {
+  background: var(--dark);
+  color: #fff;
+}
+.gasos-title {
+  color: rgba(255,255,255,.11);
+  font-weight: 600;
+  letter-spacing: -.075em;
+}
+.gasos-story-kicker, .gasos-year { color: #a6a6ad; }
+.gasos-story h3 {
+  max-width: 14ch;
+  font-size: clamp(2.6rem, 4.15vw, 4.8rem);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -.052em;
+}
+.gasos-story > p:not(.gasos-story-kicker) {
+  max-width: 34rem;
+  color: #d2d2d7;
+  font-size: 17px;
+  line-height: 1.5;
+}
+.gasos-board {
+  background: #28282b;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: var(--v2-radius);
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.gasos-flow-row strong { font-size: clamp(.94rem,1vw,1.05rem); font-weight: 550; }
+.gasos-board-progress i { background: #75b6ff; box-shadow: none; }
+.gasos-board-head strong { color: #fff; }
+.gasos-mobile-lead { line-height: 1.08; }
+.gasos-mobile-fallback > p:not(.gasos-mobile-lead) { font-size: 17px; color: #d2d2d7; }
+
+/* Light narrative chapter, optimized for legibility. */
+.experience-section { background: var(--v2-surface); }
+.experience-title { color: rgba(29,29,31,.07); }
+.experience-doc {
+  background: #fff;
+  border: 1px solid rgba(29,29,31,.08);
+  box-shadow: none;
+  backdrop-filter: none;
+  border-radius: 18px;
+}
+.experience-output {
+  border-radius: 18px;
+  background: #1d1d1f;
+  box-shadow: none;
+}
+.experience-copy > p:not(.experience-role) { color: #55555a; }
+.experience-mobile { background: var(--v2-surface); }
+
+/* The projects become objects on their own stages, not endless dark panels. */
+.selected-work {
+  background: var(--v2-surface);
+  color: var(--ink);
+}
+.selected-work-label, .selected-project-meta { color: #74747b; }
+.selected-work-intro h2 {
+  max-width: 13ch;
+  font-size: clamp(3.5rem,7.1vw,7.8rem);
+  font-weight: 600;
+  line-height: 1.01;
+  letter-spacing: -.055em;
+}
+.selected-work-intro > p, .selected-project-copy > p {
+  color: #66666c;
+  font-size: 17px;
+  line-height: 1.52;
+}
+.selected-project {
+  min-height: min(88svh,900px);
+  margin-top: 24px;
+  padding: clamp(2rem,5vw,5.5rem);
+  background: #fff;
+  border: 0;
+  border-radius: 28px;
+  gap: clamp(2rem,4vw,4rem);
+}
+.selected-project:first-of-type { margin-top: clamp(3rem,6vw,6rem); }
+.selected-project h3 {
+  max-width: 12ch;
+  font-size: clamp(3rem,5vw,6rem);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -.055em;
+}
+.selected-project-tags span {
+  color: #66666c;
+  border-color: rgba(29,29,31,.12);
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: .01em;
+}
+.selected-project-copy > a { color: var(--v2-action); font-weight: 500; }
+.selected-visual, .nirtya-live-visual {
+  border-radius: 20px;
+  border: 0;
+  box-shadow: none;
+}
+.selected-project:hover .selected-visual {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+.energy-bars i:nth-child(18), .energy-bars i:nth-child(19), .energy-bars i:nth-child(20) { background: #75b6ff; }
+.energy-peak { border-color: rgba(117,182,255,.45); }
+
+/* A photographic chapter, with editorial copy rather than decorative numbers. */
+.journey-section { background: #fff; }
+.journey-intro h2 {
+  max-width: 12ch;
+  font-size: clamp(3.5rem,7.4vw,8rem);
+  font-weight: 600;
+  line-height: 1.03;
+}
+.journey-chapter { min-height: 75svh; }
+.journey-photo-wrap {
+  border-radius: 24px;
+  background: var(--v2-surface);
+  box-shadow: none;
+}
+.journey-copy h3 {
+  font-size: clamp(4.3rem,8vw,9rem);
+  font-weight: 600;
+  line-height: 1;
+}
+.journey-copy > p { font-size: 17px; color: #55555a; line-height: 1.55; }
+.journey-number { display: none; }
+.journey-lessons span {
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: .015em;
+}
+
+/* Neutral evidence grid and one clear contact action. */
+.about-section { background: var(--v2-surface); border-top: 0; }
+.about-lead h2 {
+  max-width: 11ch;
+  font-size: clamp(3.6rem,7.1vw,8rem);
+  line-height: 1.02;
+  font-weight: 600;
+  letter-spacing: -.058em;
+}
+.about-copy p { font-size: 17px; color: #55555a; line-height: 1.55; }
+.about-grid, .about-evidence {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  gap: 16px;
+  border-radius: 0;
+  overflow: visible;
+}
+.about-grid article, .about-evidence > div {
+  min-height: 12rem;
+  padding: clamp(1.2rem,2vw,2rem);
+  border-radius: 20px;
+  background: #fff;
+  backdrop-filter: none;
+}
+.about-evidence { margin-top: 16px; }
+.about-grid strong, .about-evidence strong { font-weight: 600; }
+.contact-section { background: #1d1d1f; }
+.contact-section h2 { max-width: 13ch; line-height: 1; font-weight: 600; }
+.contact-links a {
+  border-radius: 999px;
+  box-shadow: none;
+  font-size: 15px;
+  backdrop-filter: none;
+}
+footer { background: #1d1d1f; }
+
+/* Case-study site uses the same clean typography/color grammar. */
+.case-study-page { background: #fff; }
+.case-study-nav { background: rgba(255,255,255,.89); box-shadow: none; }
+.case-title-row h1 { font-weight: 600; line-height: .96; }
+.case-section--light, .case-section--paper { background: var(--v2-surface); }
+.case-section--dark { background: #1d1d1f; }
+.case-two-col h2, .case-close h2 { font-weight: 600; line-height: 1.03; }
+.case-copy p { font-size: 17px; color: #55555a; }
+.case-section--dark .case-copy p { color: #d2d2d7; }
+.architecture-core { background: #dceeff; color: var(--ink); }
+.case-meta-grid>div, .architecture-node { background: #fff; }
+
+/* Compact layouts must keep the portrait and copy free of clipping. */
+@media (max-width: 900px) {
+  .site-header {
+    top: 10px;
+    width: calc(100% - 20px);
+    height: 54px;
+    border-radius: 16px;
+  }
+  .hero { grid-template-columns: 1fr; }
+  .hero-copy { min-height: auto; padding-top: 8.5rem; padding-bottom: 4rem; }
+  .hero h1 { font-size: clamp(3.2rem,12vw,6.9rem); }
+  .hero-visual { min-height: 65svh; }
+  .portrait-person { inset: 3% -6% -1% -5%; }
+  .selected-project { min-height: auto; }
+  .journey-chapter { min-height: auto; }
+}
+@media (max-width: 620px) {
+  .hero h1 { font-size: clamp(2.75rem,12vw,5rem); }
+  .hero-meta { flex-direction: column; }
+  .hero-visual { min-height: 55svh; }
+  .portrait-person { inset: 4% -12% -1% -12%; }
+  .selected-work-intro h2, .journey-intro h2, .about-lead h2 { font-size: clamp(2.9rem,12vw,5rem); }
+  .selected-project { border-radius: 22px; padding: 1.25rem; }
+  .selected-project h3 { font-size: clamp(2.7rem,11vw,4.4rem); }
+  .selected-visual, .nirtya-live-visual { border-radius: 16px; }
+  .about-grid, .about-evidence { gap: 12px; }
+  .about-evidence { margin-top: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .work-link { transition: none; }
+  .work-link:hover { transform: none; }
+}
